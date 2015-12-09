@@ -6,7 +6,19 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A71CA73D1C18A64800BCD837 /* include in Resources */ = {isa = PBXBuildFile; fileRef = A71CA73C1C18A64800BCD837 /* include */; };
+		A71CA73F1C18A65800BCD837 /* src in Resources */ = {isa = PBXBuildFile; fileRef = A71CA73E1C18A65800BCD837 /* src */; };
+		A74403401C18C28500FB3EBA /* include in Headers */ = {isa = PBXBuildFile; fileRef = A71CA73C1C18A64800BCD837 /* include */; settings = {ATTRIBUTES = (Public, ); }; };
+		A74403421C18C54600FB3EBA /* Ngin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A74403411C18C54600FB3EBA /* Ngin.cpp */; };
+		A74403441C18C54F00FB3EBA /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A74403431C18C54F00FB3EBA /* Object.cpp */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		A71CA73C1C18A64800BCD837 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = ../include; sourceTree = "<group>"; };
+		A71CA73E1C18A65800BCD837 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../src; sourceTree = "<group>"; };
+		A74403411C18C54600FB3EBA /* Ngin.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Ngin.cpp; path = ../src/Ngin.cpp; sourceTree = "<group>"; };
+		A74403431C18C54F00FB3EBA /* Object.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Object.cpp; path = ../src/Object.cpp; sourceTree = "<group>"; };
 		A76CAE391C18865C00951A1D /* Ngin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Ngin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A76CAE3E1C18865C00951A1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -25,6 +37,10 @@
 		A76CAE2F1C18865C00951A1D = {
 			isa = PBXGroup;
 			children = (
+				A74403431C18C54F00FB3EBA /* Object.cpp */,
+				A74403411C18C54600FB3EBA /* Ngin.cpp */,
+				A71CA73C1C18A64800BCD837 /* include */,
+				A71CA73E1C18A65800BCD837 /* src */,
 				A76CAE3E1C18865C00951A1D /* Info.plist */,
 				A76CAE3A1C18865C00951A1D /* Products */,
 			);
@@ -45,6 +61,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A74403401C18C28500FB3EBA /* include in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +122,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A71CA73D1C18A64800BCD837 /* include in Resources */,
+				A71CA73F1C18A65800BCD837 /* src in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +134,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A74403421C18C54600FB3EBA /* Ngin.cpp in Sources */,
+				A74403441C18C54F00FB3EBA /* Object.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,9 +145,9 @@
 		A76CAE3F1C18865C00951A1D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -144,7 +165,8 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				FRAMEWORK_SEARCH_PATHS = "~/dev/libs/lib_files/mac/$(CONFIGURATION)";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -158,9 +180,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "~/dev/libs/includes";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SDL2,
+					"-framework",
+					SDL2_image,
+					"-framework",
+					SDL2_ttf,
+				);
 				SDKROOT = macosx;
 				SYMROOT = ../build/mac;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -171,9 +202,9 @@
 		A76CAE401C18865C00951A1D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -191,7 +222,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				FRAMEWORK_SEARCH_PATHS = "~/dev/libs/lib_files/mac/$(CONFIGURATION)";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -199,9 +231,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "~/dev/libs/includes";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SDL2,
+					"-framework",
+					SDL2_image,
+					"-framework",
+					SDL2_ttf,
+				);
 				SDKROOT = macosx;
 				SYMROOT = ../build/mac;
 				VERSIONING_SYSTEM = "apple-generic";

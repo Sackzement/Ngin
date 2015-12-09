@@ -13,8 +13,8 @@ Object:: Object() :
 pos(0.),
 size(1.),
 
-m_parent(nullptr),
-m_children(nullptr)
+m_parent(NULL),
+m_children(NULL)
 {}
 
 
@@ -40,7 +40,7 @@ void Object:: addParent(Object* newParent)  {
         
         if (m_parent) {
             Object * oldParent = m_parent;
-            m_parent = nullptr;
+            m_parent = NULL;
             
             oldParent->removeChild(this);
         }
@@ -54,7 +54,7 @@ void Object:: removeParent()  {
     
     if (m_parent)  {
         Object* oldParent = m_parent;
-        m_parent = nullptr;
+        m_parent = NULL;
         
         oldParent->removeChild(this);
     }
@@ -63,7 +63,7 @@ void Object:: removeParent()  {
 
 bool Object::    hasChildren ()               const  {
     
-    if ( m_children == nullptr
+    if ( m_children == NULL
         || m_children->empty() )
         return false;
     else
@@ -75,7 +75,7 @@ std::vector<Object*> * Object::  getChildren() const  {
 }
 bool Object::       hasChild (Object* ch) const  {
     
-    if ( m_children != nullptr
+    if ( m_children != NULL
         && std::find(m_children->begin(),m_children->end(),ch) != m_children->end() )
         return true;
     else
@@ -219,7 +219,12 @@ Color:: Color() :
          a ( *(&r+3) )
 {}
 
-Color:: Color(const Uint32& newColor) : Color()
+Color:: Color(const Uint32& newColor) :
+m_color (0xffffffff),
+r ( *((Uint8*)&m_color) ),
+g ( *(&r+1) ),
+b ( *(&r+2) ),
+a ( *(&r+3) )
 {
     m_color = newColor;
 }
@@ -295,12 +300,16 @@ void RectLine:: render()  {
 Texture:: Texture() :
     w (m_w),
     h (m_h),
-    m_sdlTexture (nullptr),
+    m_sdlTexture (NULL),
     m_w (0),
     m_h (0)
 {}
 Texture:: Texture( SDL_Texture* sdlTexture, int width, int height ) :
-    Texture()
+w (m_w),
+h (m_h),
+m_sdlTexture (NULL),
+m_w (0),
+m_h (0)
 {
     setSdlTexture( sdlTexture, width, height );
 }
@@ -333,7 +342,7 @@ Texture& Texture::  operator = (const Texture& tex)  {
 
 Image::  Image () :
     Object (),
-    m_clipRect (nullptr),
+    m_clipRect (NULL),
        texture (),
           flip (0),
            rot (0.)
