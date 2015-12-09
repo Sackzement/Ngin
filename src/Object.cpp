@@ -1,5 +1,5 @@
-#include "../include/Object.h"
 #include <algorithm>
+#include "../include/Object.h"
 #include "../include/Ngin.h"
 
 

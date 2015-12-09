@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A71CA73D1C18A64800BCD837 /* include in Resources */ = {isa = PBXBuildFile; fileRef = A71CA73C1C18A64800BCD837 /* include */; };
-		A71CA73F1C18A65800BCD837 /* src in Resources */ = {isa = PBXBuildFile; fileRef = A71CA73E1C18A65800BCD837 /* src */; };
-		A74403401C18C28500FB3EBA /* include in Headers */ = {isa = PBXBuildFile; fileRef = A71CA73C1C18A64800BCD837 /* include */; settings = {ATTRIBUTES = (Public, ); }; };
-		A74403421C18C54600FB3EBA /* Ngin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A74403411C18C54600FB3EBA /* Ngin.cpp */; };
-		A74403441C18C54F00FB3EBA /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A74403431C18C54F00FB3EBA /* Object.cpp */; };
+		A7407B8D1C18DB6D00073DCA /* Ngin.h in Headers */ = {isa = PBXBuildFile; fileRef = A7407B861C18DB6D00073DCA /* Ngin.h */; };
+		A7407B8E1C18DB6D00073DCA /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = A7407B871C18DB6D00073DCA /* Object.h */; };
+		A7407B8F1C18DB6D00073DCA /* sdf.h in Headers */ = {isa = PBXBuildFile; fileRef = A7407B881C18DB6D00073DCA /* sdf.h */; };
+		A7407B901C18DB6D00073DCA /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = A7407B891C18DB6D00073DCA /* types.h */; };
+		A7407B911C18DB6D00073DCA /* Ngin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7407B8B1C18DB6D00073DCA /* Ngin.cpp */; };
+		A7407B921C18DB6D00073DCA /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7407B8C1C18DB6D00073DCA /* Object.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A71CA73C1C18A64800BCD837 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = ../include; sourceTree = "<group>"; };
-		A71CA73E1C18A65800BCD837 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../src; sourceTree = "<group>"; };
-		A74403411C18C54600FB3EBA /* Ngin.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Ngin.cpp; path = ../src/Ngin.cpp; sourceTree = "<group>"; };
-		A74403431C18C54F00FB3EBA /* Object.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Object.cpp; path = ../src/Object.cpp; sourceTree = "<group>"; };
+		A7407B861C18DB6D00073DCA /* Ngin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ngin.h; sourceTree = "<group>"; };
+		A7407B871C18DB6D00073DCA /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		A7407B881C18DB6D00073DCA /* sdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sdf.h; sourceTree = "<group>"; };
+		A7407B891C18DB6D00073DCA /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		A7407B8B1C18DB6D00073DCA /* Ngin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ngin.cpp; sourceTree = "<group>"; };
+		A7407B8C1C18DB6D00073DCA /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
 		A76CAE391C18865C00951A1D /* Ngin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Ngin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A76CAE3E1C18865C00951A1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -34,13 +37,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A7407B851C18DB6D00073DCA /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A7407B861C18DB6D00073DCA /* Ngin.h */,
+				A7407B871C18DB6D00073DCA /* Object.h */,
+				A7407B881C18DB6D00073DCA /* sdf.h */,
+				A7407B891C18DB6D00073DCA /* types.h */,
+			);
+			name = include;
+			path = ../include;
+			sourceTree = "<group>";
+		};
+		A7407B8A1C18DB6D00073DCA /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A7407B8B1C18DB6D00073DCA /* Ngin.cpp */,
+				A7407B8C1C18DB6D00073DCA /* Object.cpp */,
+			);
+			name = src;
+			path = ../src;
+			sourceTree = "<group>";
+		};
 		A76CAE2F1C18865C00951A1D = {
 			isa = PBXGroup;
 			children = (
-				A74403431C18C54F00FB3EBA /* Object.cpp */,
-				A74403411C18C54600FB3EBA /* Ngin.cpp */,
-				A71CA73C1C18A64800BCD837 /* include */,
-				A71CA73E1C18A65800BCD837 /* src */,
+				A7407B851C18DB6D00073DCA /* include */,
+				A7407B8A1C18DB6D00073DCA /* src */,
 				A76CAE3E1C18865C00951A1D /* Info.plist */,
 				A76CAE3A1C18865C00951A1D /* Products */,
 			);
@@ -61,7 +84,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A74403401C18C28500FB3EBA /* include in Headers */,
+				A7407B8F1C18DB6D00073DCA /* sdf.h in Headers */,
+				A7407B8D1C18DB6D00073DCA /* Ngin.h in Headers */,
+				A7407B901C18DB6D00073DCA /* types.h in Headers */,
+				A7407B8E1C18DB6D00073DCA /* Object.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,8 +148,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A71CA73D1C18A64800BCD837 /* include in Resources */,
-				A71CA73F1C18A65800BCD837 /* src in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,8 +158,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A74403421C18C54600FB3EBA /* Ngin.cpp in Sources */,
-				A74403441C18C54F00FB3EBA /* Object.cpp in Sources */,
+				A7407B921C18DB6D00073DCA /* Object.cpp in Sources */,
+				A7407B911C18DB6D00073DCA /* Ngin.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

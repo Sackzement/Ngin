@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
-#include "types.h"
 #include <SDL/SDL_render.h>
 #include <SDL/SDL_stdinc.h>
+#include "types.h"
 
 
 

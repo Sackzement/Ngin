@@ -5,7 +5,7 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_ttf.h>
 #include <SDL/SDL_image.h>
-#include "Object.h"
+class Object;
 
 typedef void (*func) ();
 
@@ -61,7 +61,6 @@ private:
     void  doDelay();
     void  doRender();
 };
-
 
 
 
