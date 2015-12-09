@@ -65,8 +65,7 @@ private:
 
 
 
-//extern
-Ngin ngin;
+extern Ngin ngin;
 
 
 

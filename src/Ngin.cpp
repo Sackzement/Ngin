@@ -2,7 +2,7 @@
 #include "../include/Object.h"
 
 
-
+Ngin ngin;
 
 
 
