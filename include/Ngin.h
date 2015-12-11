@@ -45,6 +45,7 @@ public:
           Ngin();
     
     bool  initLibs();
+	bool  createWindowAndRenderer(const char* title, int x, int y, int w, int h, Uint32 winFlags, Uint32 renFlags);
     void  enterMainLoop();
 
 	void  quit();

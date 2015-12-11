@@ -56,6 +56,34 @@ bool    Ngin:: initLibs()       {
         
 		return true;
     }
+bool    Ngin:: createWindowAndRenderer(const char* title, int x, int y, int w, int h, Uint32 winFlags, Uint32 renFlags)
+{
+	if (m_window)
+	{
+		std::cout << "Error:  Window already created" << std::endl;
+		return false;
+	}
+
+	m_window = SDL_CreateWindow(title, x, y, w, h, winFlags);
+	if (!m_window)
+	{
+		printf("Error:  Failed to create window  %s\n", SDL_GetError());
+		return false;
+	}
+
+	m_renderer = SDL_GetRenderer(m_window);
+	if (!m_renderer)
+	{
+		m_renderer = SDL_CreateRenderer(m_window, -1, renFlags);
+		if (!m_renderer)
+		{
+			printf("Error:  Failed to create renderer  %s\n", SDL_GetError());
+			return false;
+		}
+	}
+
+	return true;
+}
 void    Ngin:: enterMainLoop()  {
     
     doCapGtimeCalcDt();
