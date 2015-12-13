@@ -50,8 +50,15 @@ public:
 
 	void  quit();
     void  setFPS(const Uint16& newFPS);
+	
 	SDL_Renderer* getRenderer();
 	SDL_Window* getWindow();
+
+	bool isKeyDown(SDL_Keycode key);
+	bool isKeyDownOnce(SDL_Keycode key);
+	bool isKeyUpOnce(SDL_Keycode key);
+
+	void addObject(Object* obj);
     
 private:
     void  doCapGtimeCalcDt();

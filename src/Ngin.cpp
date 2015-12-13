@@ -99,6 +99,7 @@ void    Ngin:: enterMainLoop()  {
         doRender();
     }
 }
+
 void    Ngin:: quit()
 {
 	m_quit = true;
@@ -109,13 +110,40 @@ void    Ngin:: setFPS(const Uint16& newFPS)  {
     m_msPerFrame = 1000. / double(m_fps);
 }
 
-SDL_Renderer* Ngin::getRenderer()
+SDL_Renderer* Ngin:: getRenderer()
 {
 	return m_renderer;
 }
-SDL_Window*  Ngin::getWindow()
+SDL_Window*  Ngin::  getWindow()
 {
 	return m_window;
+}
+
+bool Ngin:: isKeyDown(SDL_Keycode key)
+{
+	if (m_kbState[key] == true)
+		return true;
+	else
+		return false;
+}
+bool Ngin:: isKeyDownOnce(SDL_Keycode key)
+{
+	if (m_kbStateOnceDown[key] == true)
+		return true;
+	else
+		return false;
+}
+bool Ngin:: isKeyUpOnce(SDL_Keycode key)
+{
+	if (m_kbStateOnceUp[key] == true)
+		return true;
+	else
+		return false;
+}
+
+void Ngin::addObject(Object* obj)
+{
+	m_objects.push_back(obj);
 }
 
 void    Ngin:: doCapGtimeCalcDt() {
