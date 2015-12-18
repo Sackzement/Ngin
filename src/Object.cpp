@@ -210,40 +210,6 @@ bool Object:: checkColl (const Object & otherGO, vec2<double> & inters) const  {
 
 
 
-Color:: Color() :
-   m_color (0xffffffff),
-         r ( *((Uint8*)&m_color) ),
-         g ( *(&r+1) ),
-         b ( *(&r+2) ),
-         a ( *(&r+3) )
-{}
-
-Color:: Color(const Uint32& newColor) :
-m_color (0xffffffff),
-r ( *((Uint8*)&m_color) ),
-g ( *(&r+1) ),
-b ( *(&r+2) ),
-a ( *(&r+3) )
-{
-    m_color = newColor;
-}
-
-       Color::  operator Uint32  () const           {
-    return m_color;
-}
-Color& Color::  operator =       (const Color& newColor)  {
-    
-    m_color = newColor.m_color;
-    
-    return *this;
-}
-Color& Color::  operator =       (const Uint32& newColor)  {
-    
-    m_color = newColor;
-    
-    return *this;
-}
-
 
 
 
@@ -252,7 +218,7 @@ Color& Color::  operator =       (const Uint32& newColor)  {
 
 Shape:: Shape() :
 Object (),
-     color (0xffffffff)
+color({255,255,255,255})
 {}
 
 

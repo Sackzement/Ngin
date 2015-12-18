@@ -19,12 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\Button.h" />
     <ClInclude Include="..\include\Ngin.h" />
     <ClInclude Include="..\include\Object.h" />
     <ClInclude Include="..\include\sdf.h" />
     <ClInclude Include="..\include\types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Button.cpp" />
     <ClCompile Include="..\src\Ngin.cpp" />
     <ClCompile Include="..\src\Object.cpp" />
   </ItemGroup>

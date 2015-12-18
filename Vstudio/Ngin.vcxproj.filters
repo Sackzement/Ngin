@@ -23,12 +23,18 @@
     <ClInclude Include="..\include\Ngin.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Button.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Ngin.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Object.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Button.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

@@ -49,26 +49,11 @@ protected:
 
 
 
-class Color  {
-private:
-    Uint32 m_color;
-public:
-    Uint8& r;
-    Uint8& g;
-    Uint8& b;
-    Uint8& a;
-    
-    Color();
-    Color(const Uint32& newColor);
-           operator Uint32    () const;
-    Color& operator =         (const Color& newColor);
-    Color& operator =         (const Uint32& newColor);
-};
 
 
 class  Shape  : public Object  {
 public:
-    Color      color;
+    SDL_Color      color;
     
     Shape();
 };
