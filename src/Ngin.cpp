@@ -143,7 +143,11 @@ bool Ngin:: isKeyUpOnce(SDL_Keycode key)
 
 void Ngin::addObject(Object* obj)
 {
-	m_objects.push_back(obj);
+	addScript( [this,obj] () { this->m_objects.push_back(obj); } );
+}
+void Ngin::addScript(std::function<void()> func)
+{
+	m_scripts.push_back(func);
 }
 
 void    Ngin:: doCapGtimeCalcDt() {

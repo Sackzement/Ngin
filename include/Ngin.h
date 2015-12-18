@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <functional>
 #include <string>
 #include <map>
 #include <SDL/SDL.h>
@@ -7,9 +8,9 @@
 #include <SDL/SDL_image.h>
 class Object;
 
-typedef void (*func) ();
+typedef void (*vfuncv) ();
 
-
+#include "Button.h"
 
 
 
@@ -28,7 +29,7 @@ private:
     
     std::map<std::string,TTF_Font*>  m_fonts;
     
-    std::vector<func>                m_scripts;
+    std::vector<std::function<void()>>                m_scripts;
     
     std::map<SDL_Keycode, bool>      m_kbState;
     std::map<SDL_Keycode, bool>      m_kbStateOnceDown;
@@ -37,7 +38,7 @@ private:
     
     std::vector<Object*>         m_objects;
 
-	std::vector<func>                m_collChecks;
+	std::vector<vfuncv>                m_collChecks;
     
     // FUNCTIONS-----------------------------------
 
@@ -59,7 +60,8 @@ public:
 	bool isKeyUpOnce(SDL_Keycode key);
 
 	void addObject(Object* obj);
-    
+	void addScript(std::function<void()> func);
+
 private:
     void  doCapGtimeCalcDt();
     void  doScripts();
