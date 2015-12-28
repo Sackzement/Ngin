@@ -1,3 +1,4 @@
+#pragma once
 #include "../include/Ngin.h"
 #include "../include/Object.h"
 
@@ -17,14 +18,11 @@ m_delayTime (0),
 m_quit (false),
 m_window (NULL),
 m_renderer (NULL),
-
+       
 m_fonts (),
 
 m_scripts (),
 
-m_kbState (),
-m_kbStateOnceDown (),
-m_kbStateOnceUp (),
 
 
 m_objects ()
@@ -110,6 +108,13 @@ void    Ngin:: setFPS(const Uint16& newFPS)  {
     m_msPerFrame = 1000. / double(m_fps);
 }
 
+void    Ngin:: free()
+{
+	SDL_DestroyRenderer(m_renderer);
+	SDL_DestroyWindow(m_window);
+
+}
+
 SDL_Renderer* Ngin:: getRenderer()
 {
 	return m_renderer;
@@ -119,26 +124,20 @@ SDL_Window*  Ngin::  getWindow()
 	return m_window;
 }
 
-bool Ngin:: isKeyDown(SDL_Keycode key)
+bool Ngin:: isKeyDown(SDL_Scancode key)
 {
-	if (m_kbState[key] == true)
+	if (m_keyStates[key] == true)
 		return true;
 	else
 		return false;
 }
-bool Ngin:: isKeyDownOnce(SDL_Keycode key)
+bool Ngin:: isKeyDownOnce(SDL_Scancode key)
 {
-	if (m_kbStateOnceDown[key] == true)
-		return true;
-	else
-		return false;
+	return m_keyStatesOnceDown[key];
 }
-bool Ngin:: isKeyUpOnce(SDL_Keycode key)
+bool Ngin:: isKeyUpOnce(SDL_Scancode key)
 {
-	if (m_kbStateOnceUp[key] == true)
-		return true;
-	else
-		return false;
+	return m_keyStatesOnceUp[key];
 }
 
 void Ngin::addObject(Object* obj)
@@ -155,7 +154,6 @@ void    Ngin:: doCapGtimeCalcDt() {
     Uint32 lastGameTime = m_gameTime;
     m_gameTime = SDL_GetTicks();
     
-    
     m_deltaTime = .001 * static_cast<double>(m_gameTime - lastGameTime);
 }
 void    Ngin:: doScripts()      {
@@ -166,9 +164,9 @@ void    Ngin:: doScripts()      {
 		m_scripts.clear();
     }
 void    Ngin:: doInput()        {
-    
-	m_kbStateOnceDown.clear();
-	m_kbStateOnceUp.clear();
+
+	memset(m_keyStatesOnceDown, false, SDL_NUM_SCANCODES);
+	memset(m_keyStatesOnceUp, false, SDL_NUM_SCANCODES);
         
     for (SDL_Event ev; SDL_PollEvent(&ev) != 0 ;)
         switch (ev.type)  {
@@ -178,14 +176,16 @@ void    Ngin:: doInput()        {
                 break;
                     
             case SDL_KEYDOWN:
-                if ( ev.key.repeat == 0 )
-					m_kbStateOnceDown [ev.key.keysym.sym]  = 1;
-				m_kbState         [ev.key.keysym.sym]  = 1;
+				if (ev.key.repeat == 0)
+				{
+					m_keyStatesOnceDown[ev.key.keysym.scancode] = 1;
+					m_keyStates[ev.key.keysym.scancode] = 1;
+				}
                 break;
                     
             case SDL_KEYUP:
-				m_kbStateOnceUp [ev.key.keysym.sym]  = 1;
-				m_kbState       [ev.key.keysym.sym]  = 0;
+				m_keyStatesOnceUp [ev.key.keysym.scancode]  = 1;
+				m_keyStates[ev.key.keysym.scancode] = 0;
                 break;
         }
         

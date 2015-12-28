@@ -20,15 +20,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Button.h" />
+    <ClInclude Include="..\include\lib.h" />
     <ClInclude Include="..\include\Ngin.h" />
     <ClInclude Include="..\include\Object.h" />
+    <ClInclude Include="..\include\renderer.h" />
     <ClInclude Include="..\include\sdf.h" />
+    <ClInclude Include="..\include\sdlRenderer.h" />
+    <ClInclude Include="..\include\Time.h" />
     <ClInclude Include="..\include\types.h" />
+    <ClInclude Include="..\include\window.h" />
+    <ClInclude Include="..\src\sdlWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Button.cpp" />
+    <ClCompile Include="..\src\lib.cpp" />
     <ClCompile Include="..\src\Ngin.cpp" />
     <ClCompile Include="..\src\Object.cpp" />
+    <ClCompile Include="..\src\renderer.cpp" />
+    <ClCompile Include="..\src\window.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D68E8CCA-F829-483A-AF37-3C47DF8BD8AC}</ProjectGuid>
