@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <SDL/SDL.h>
+#include <SDL/SDL_video.h>
 #include <SDL/SDL_ttf.h>
 #include <SDL/SDL_image.h>
 class Object;
@@ -31,9 +32,11 @@ private:
     
     std::vector<std::function<void()>>                m_scripts;
     
-    std::map<SDL_Keycode, bool>      m_kbState;
-    std::map<SDL_Keycode, bool>      m_kbStateOnceDown;
-    std::map<SDL_Keycode, bool>      m_kbStateOnceUp;
+	bool m_keyStates[SDL_NUM_SCANCODES];
+	bool m_keyStatesOnceDown[SDL_NUM_SCANCODES];
+	bool m_keyStatesOnceUp[SDL_NUM_SCANCODES];
+
+	
     
     
     std::vector<Object*>         m_objects;
@@ -42,7 +45,18 @@ private:
     
     // FUNCTIONS-----------------------------------
 
-public:
+public: 
+	struct
+	{ 
+		SDL_Scancode up = SDL_SCANCODE_UP;
+		SDL_Scancode down = SDL_SCANCODE_DOWN;
+		SDL_Scancode left = SDL_SCANCODE_LEFT;
+		SDL_Scancode right = SDL_SCANCODE_RIGHT;
+		SDL_Scancode select = SDL_SCANCODE_RETURN;
+		SDL_Scancode back = SDL_SCANCODE_ESCAPE;
+
+	}controls;
+
           Ngin();
     
     bool  initLibs();
@@ -51,13 +65,15 @@ public:
 
 	void  quit();
     void  setFPS(const Uint16& newFPS);
+
+	void free();
 	
 	SDL_Renderer* getRenderer();
 	SDL_Window* getWindow();
 
-	bool isKeyDown(SDL_Keycode key);
-	bool isKeyDownOnce(SDL_Keycode key);
-	bool isKeyUpOnce(SDL_Keycode key);
+	bool isKeyDown(SDL_Scancode key);
+	bool isKeyDownOnce(SDL_Scancode key);
+	bool isKeyUpOnce(SDL_Scancode key);
 
 	void addObject(Object* obj);
 	void addScript(std::function<void()> func);
