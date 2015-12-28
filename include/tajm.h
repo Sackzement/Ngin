@@ -1,7 +1,7 @@
 #pragma once
 
 
-class
+class tajm
 {
 	int     m_total         = 0;
 	double  m_secsPerFrame  = 0.;
@@ -10,7 +10,7 @@ class
 public:
 	const int    &  total         = m_total;
 	const double &  secsPerFrame  = m_secsPerFrame;
-	unsigned  int    &  m_fpsWanted = m_fpsWanted;
+	      int    &  fpsWanted = m_fpsWanted;
 	const int    &  fpsReal       = m_fpsReal;
 
-}time;
+};

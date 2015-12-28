@@ -1,5 +1,11 @@
-rm -rf "/Users/piit/dev/libs/lib_files/mac/Debug/Ngin.framework"
-rm -rf "/Users/piit/dev/libs/lib_files/mac/Release/Ngin.framework"
+rm -irf /Users/piit/dev/libs/lib_files/mac/Debug/Ngin.framework
+rm -irf /Users/piit/dev/libs/lib_files/mac/Release/Ngin.framework
 
-cp -R "/Users/piit/dev/projects/Ngin/build/mac/Debug/Ngin.framework" "/Users/piit/dev/libs/lib_files/mac/Debug/Ngin.framework"
-cp -R "/Users/piit/dev/projects/Ngin/build/mac/Release/Ngin.framework" "/Users/piit/dev/libs/lib_files/mac/Release/Ngin.framework"
+cp -iRf /Users/piit/dev/projects/Ngin/build/mac/Debug/Ngin.framework /Users/piit/dev/libs/lib_files/mac/Debug/Ngin.framework
+cp -iRf /Users/piit/dev/projects/Ngin/build/mac/Release/Ngin.framework /Users/piit/dev/libs/lib_files/mac/Release/Ngin.framework
+
+
+
+rm  /Users/piit/dev/libs/includes/Ngin/*
+
+cp -f /Users/piit/dev/projects/Ngin/include/* /Users/piit/dev/libs/includes/Ngin/

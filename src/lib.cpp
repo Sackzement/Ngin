@@ -1,4 +1,4 @@
-#pragma once
+
 
 #include "../include/lib.h"
 
@@ -27,13 +27,13 @@ int Clib::init() {
 	if (IMG_Init(IMG_INIT_PNG) == 0) {
 
 		SDL_Log("Error:  Failed to init SDL_img  %s\n", SDL_GetError());
-		ret != 2;
+		ret |= 2;
 	}
 	// INIT SDL_ttf
 	if (TTF_Init() == -1) {
 
 		SDL_Log("Error:  Failed to init SDL_ttf  %s\n", SDL_GetError());
-		ret != 4;
+		ret |= 4;
 	}
 	return ret;
 

@@ -1,8 +1,9 @@
-#pragma once
 
 #include "../include/renderer.h"
-#include "../include/window.h"
+#include "../include/sdlWindow.h"
 #include "../include/sdlRenderer.h"
+#include <SDL/SDL_log.h>
+
 
 
 CrendererFlags::CrendererFlags() :
@@ -25,15 +26,15 @@ CRenderer renderer;
 
 bool CRenderer::create(int index, uint flag)
 {
-	if (m_sdlRenderer) 
+	if (sdlRenderer)
 		return true;
 
-	//m_sdlRenderer = SDL_GetRenderer(m_sdlWindow);
-	if (m_sdlRenderer)
+	sdlRenderer= SDL_GetRenderer(sdlWindow);
+	if (sdlRenderer)
 		return true;
 
-	//m_sdlRenderer = SDL_CreateRenderer(m_sdlWindow, index, flag);
-	if (!m_sdlRenderer) {
+	sdlRenderer = SDL_CreateRenderer(sdlWindow, index, flag);
+	if (!sdlRenderer) {
 		SDL_Log("Error:  Failed to create renderer  %s", SDL_GetError());
 		return false;
 	}
@@ -45,6 +46,6 @@ bool CRenderer::create(int index, uint flag)
 
 void CRenderer::destroy() {
 
-	SDL_DestroyRenderer(m_sdlRenderer);
-	m_sdlRenderer = nullptr;
+	SDL_DestroyRenderer(sdlRenderer);
+	sdlRenderer = nullptr;
 }

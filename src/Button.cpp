@@ -1,4 +1,4 @@
-#include "../include/Button.h"
+/*#include "../include/Button.h"
 
 
 Button:: Button( void(*pressFunc)() ) :
@@ -14,4 +14,4 @@ void Button::press()
 void Button::setPressFunc(void(*pressFunc)())
 {
 		m_pressFunc = pressFunc;
-}
+}*/

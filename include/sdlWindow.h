@@ -2,4 +2,6 @@
 #include <SDL/SDL_video.h>
 
 
-SDL_Window* m_sdlWindow = nullptr;
+static SDL_Window* sdlWindow = nullptr;
+
+

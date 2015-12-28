@@ -1,6 +1,6 @@
 #pragma once
-#include <SDL/SDL.h>
+#include <SDL/SDL_render.h>
 
 
 
-SDL_Renderer* m_sdlRenderer = nullptr;
+static SDL_Renderer* sdlRenderer = nullptr;

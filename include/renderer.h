@@ -17,7 +17,7 @@ extern CRenderer renderer;
 struct CRenderer
 {
 	CrendererFlags flags;
-	bool create(int index = -1, uint flag = renderer.flags.accel);
+	bool create(int index = -1, uint flag = renderer.flags.accel | renderer.flags.accel);
 	void destroy();
 };
 
