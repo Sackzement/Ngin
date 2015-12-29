@@ -1,7 +1,7 @@
 
 #include "../include/renderer.h"
-#include "../include/sdlWindow.h"
-#include "../include/sdlRenderer.h"
+#include "sdlWindow.h"
+#include "sdlRenderer.h"
 #include <SDL/SDL_log.h>
 
 
@@ -17,9 +17,8 @@ CrendererFlags::CrendererFlags() :
 
 
 
+
 CRenderer renderer;
-
-
 
 
 

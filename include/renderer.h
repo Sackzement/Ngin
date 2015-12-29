@@ -11,6 +11,7 @@ struct CrendererFlags {
 	const uint texture;
 };
 
+
 struct CRenderer;
 extern CRenderer renderer;
 
@@ -20,4 +21,5 @@ struct CRenderer
 	bool create(int index = -1, uint flag = renderer.flags.accel | renderer.flags.accel);
 	void destroy();
 };
+
 

@@ -3,20 +3,11 @@
 #include "sdlWindow.h"
 #include <SDL/SDL.h>
 
-CwindowFlags::CwindowFlags() :
-	fullscreen        (SDL_WINDOW_FULLSCREEN),
-	opengl            (SDL_WINDOW_OPENGL),
-	shown             (SDL_WINDOW_SHOWN),
-	hidden            (SDL_WINDOW_HIDDEN),
-	fullscreenDesktop (SDL_WINDOW_FULLSCREEN_DESKTOP),
-	allowHightDPI     (SDL_WINDOW_ALLOW_HIGHDPI)
-	{}
-
-
-
-
 
 CWindow window;
+
+
+
 
 
 
@@ -37,7 +28,7 @@ bool CWindow::create(cchar* title, int xPos, int yPos, int width, int height, ui
 	}
 	else
 	{
-		return true;
+   		return true;
 	}
 }
 

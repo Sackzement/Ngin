@@ -6,4 +6,4 @@ struct Clib
 	void quit();
 };
 
-extern Clib lib;
+static Clib lib;

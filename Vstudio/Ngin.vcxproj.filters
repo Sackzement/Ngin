@@ -38,10 +38,13 @@
     <ClInclude Include="..\include\renderer.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\sdlWindow.h">
-      <Filter>include</Filter>
+    <ClInclude Include="..\src\sdlRenderer.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\sdlRenderer.h">
+    <ClInclude Include="..\src\sdlWindow.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\textures.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
@@ -62,6 +65,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\renderer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\textures.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
