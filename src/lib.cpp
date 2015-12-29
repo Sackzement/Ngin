@@ -7,6 +7,10 @@
 #include <SDL/SDL_ttf.h>
 
 
+Clib lib;
+
+
+
 
 
 int Clib::init() {

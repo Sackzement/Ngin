@@ -1,6 +1,7 @@
 
 #include "../include/Ngin.h"
 #include "../include/Object.h"
+#include <iostream>
 
 
 Ngin ngin;

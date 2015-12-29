@@ -5,8 +5,12 @@
 #include <SDL/SDL_log.h>
 
 
+CRenderer renderer;
 
-CrendererFlags::CrendererFlags() :
+
+
+
+CRendererFlags::CRendererFlags() :
 	software(SDL_RENDERER_SOFTWARE),
 	accel(SDL_RENDERER_ACCELERATED),
 	vsync(SDL_RENDERER_PRESENTVSYNC),
@@ -18,12 +22,10 @@ CrendererFlags::CrendererFlags() :
 
 
 
-CRenderer renderer;
 
 
 
-
-bool CRenderer::create(int index, uint flag)
+bool CRenderer::create(int index, int flag)
 {
 	if (sdlRenderer)
 		return true;

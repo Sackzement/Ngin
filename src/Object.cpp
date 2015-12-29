@@ -1,6 +1,6 @@
-#include <algorithm>
+//#include <algorithm>
 #include "../include/Object.h"
-#include "../include/Ngin.h"
+#include "sdlRenderer.h"
 
 
 
@@ -234,8 +234,8 @@ void Rect:: render()  {
     rect.w = static_cast<int>( size.x );
     rect.h = static_cast<int>( size.y );
     
-    SDL_SetRenderDrawColor(ngin.getRenderer(), color.r, color.g, color.b, color.a);
-    SDL_RenderFillRect(ngin.getRenderer(), &rect);
+    SDL_SetRenderDrawColor(sdlRenderer, color.r, color.g, color.b, color.a);
+    SDL_RenderFillRect(sdlRenderer, &rect);
 }
 
 
@@ -251,8 +251,8 @@ void RectLine:: render()  {
     rect.w = static_cast<int>( size.x );
     rect.h = static_cast<int>( size.y );
     
-    SDL_SetRenderDrawColor(ngin.getRenderer(), color.r, color.g, color.b, color.a);
-    SDL_RenderDrawRect(ngin.getRenderer(), &rect);
+    SDL_SetRenderDrawColor(sdlRenderer, color.r, color.g, color.b, color.a);
+    SDL_RenderDrawRect(sdlRenderer, &rect);
 }
 
 
@@ -322,7 +322,7 @@ void Image::  render()  {
     toRect.w  = int( size.x * (float)texture.w );
     toRect.h  = int( size.y * (float)texture.h );
     
-    SDL_RenderCopyEx( ngin.getRenderer(), texture, m_clipRect, &toRect, rot, NULL, (SDL_RendererFlip)flip );
+    SDL_RenderCopyEx( sdlRenderer, texture, m_clipRect, &toRect, rot, NULL, (SDL_RendererFlip)flip );
 }
 
 

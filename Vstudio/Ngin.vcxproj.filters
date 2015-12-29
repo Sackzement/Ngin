@@ -70,5 +70,11 @@
     <ClCompile Include="..\src\textures.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\sdlWindow.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sdlRenderer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

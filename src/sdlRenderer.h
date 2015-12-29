@@ -3,4 +3,4 @@
 
 
 
-static SDL_Renderer* sdlRenderer;
+extern SDL_Renderer* sdlRenderer;

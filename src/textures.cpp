@@ -5,47 +5,57 @@
 #include <algorithm>
 
 
+CTextures textures;
 
-map<cchar*, Texture> Ctextures::list = map<cchar*, Texture>();
 
 
-bool  Ctextures::loadTexture(cchar * fileName) {
-	// get texture pos from name  in list
-	Texture& tex = list[fileName];
-	// check if already exists
-	if (tex.texturePtr != nullptr) {
+Texture::Texture(void* texturePtr, int width, int height, const char* name) :
+	texturePtr(texturePtr),
+	width(width),
+	height(height),
+	name(name)
+{}
+
+bool  CTextures::loadTexture(const char * fileName) {
+	try {
+		// check if texture already exists
+		const Texture& tex = list.at(fileName);
 		SDL_Log("Error:  Texture already exists  \"%s\" ", fileName);
 		return false;
 	}
-	// load file into Surface
-	SDL_Surface* surf = IMG_Load(fileName);
-	if (!surf) {
-		SDL_Log("Error:  Failed to load file \"%s\"  %s", fileName, SDL_GetError());
-		return false;
+	catch (const std::out_of_range oor) {
+		// load file into Surface
+		SDL_Surface* surf = IMG_Load(fileName);
+		if (!surf) {
+			SDL_Log("Error:  Failed to load file \"%s\"  %s", fileName, SDL_GetError());
+			return false;
+		}
+
+		bool success = false;
+		// create texture from surface
+		SDL_Texture* sdlTex = SDL_CreateTextureFromSurface(sdlRenderer, surf);
+		if (!sdlTex)
+			SDL_Log("Error:  Failed to create Texture from Surface image  \"%s\"  %s", fileName, SDL_GetError());
+		else {
+			// assign texture data to texture in list
+			m_list.insert(std::pair<const char*,const Texture> (fileName, Texture(sdlTex, surf->w, surf->h, fileName) ) );
+			success = true;
+		}
+		// delete loaded surface
+		SDL_FreeSurface(surf);
+		return success;
 	}
 
-	bool success = false;
-	// create texture from surface
-	SDL_Texture* sdlTex = SDL_CreateTextureFromSurface(sdlRenderer, surf);
-	if (!sdlTex)
-		SDL_Log("Error:  Failed to create Texture from Surface image  \"%s\"  %s", fileName, SDL_GetError());
-	else {
-		// assign texture data to texture in list
-			tex.texturePtr = sdlTex;
-			tex.name = fileName;
-			tex.width = surf->w;
-			tex.height = surf->h;
-			success = true;
-	}
-	// delete loaded surface
-	SDL_FreeSurface(surf);
-	return success;
+
+	
+
+	
 		
 }
 
 
 
-void  Ctextures::unloadAllTextures() {
+void  CTextures::unloadAllTextures() {
 
 	// traverses list, deletes every texture
 	// deletes list
@@ -55,7 +65,7 @@ void  Ctextures::unloadAllTextures() {
 		if ((*it).second.texturePtr != nullptr)
 			SDL_DestroyTexture( (SDL_Texture*)(*it).second.texturePtr);
 	}
-	list.clear();
+	m_list.clear();
 
 }
 

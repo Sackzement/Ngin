@@ -1,6 +1,5 @@
 #pragma once
-#include <iostream>
-#include <SDL/SDL_render.h>
+//#include <SDL/SDL_render.h>
 #include <SDL/SDL_stdinc.h>
 #include "types.h"
 
@@ -61,7 +60,7 @@ class  Rect   : public Shape   {
 public:
     void render() override;
     
-};
+};x
 class  RectLine   : public Shape   {
 public:
     void render() override;

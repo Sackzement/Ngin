@@ -2,6 +2,6 @@
 #include <SDL/SDL_video.h>
 
 
-static SDL_Window* sdlWindow ;
+extern SDL_Window* sdlWindow ;
 
 

@@ -1,37 +1,42 @@
+#pragma once
+
 /*
 texture.loadTexture("house.png");
 texture.unloadAllTextures();
 texture.list
-
-
 */
 
 
 
-#pragma once
+struct CTextures;
+extern CTextures textures;
+
+
+
+
 #include <map>
 using std::map;
 
-typedef unsigned int uint;
-typedef const char cchar;
 
 struct Texture {
-	const void* texturePtr= nullptr;
-	cchar* name = "";
-	uint width = 0;
-	uint height = 0;
+	const void*  texturePtr;
+	const int    width;
+	const int    height;
+	const char*  name;
+
+	Texture(void* texturePtr, int width, int height, const char* name);
 };
 
-struct Ctextures {
+struct CTextures {
 
-
-	static map<cchar*, Texture> list;
-	bool loadTexture(cchar * fileName);
-	static void unloadAllTextures();
+private:
+	map<const char*, const Texture> m_list;
+public:
+	const map<const char*, const Texture>& list = m_list ;
+	bool loadTexture(const char * fileName);
+	void unloadAllTextures();
 
 };
 
 
 
-
-	static Ctextures textures;
