@@ -209,25 +209,18 @@ void RectLine::render(const Transform& off)  {
 
 
 
-
-
-
-Texture:: Texture() :
-    w (m_w),
-    h (m_h),
-    m_sdlTexture (NULL),
-    m_w (0),
-    m_h (0)
-{}
-Texture:: Texture( SDL_Texture* sdlTexture, int width, int height ) :
-w (m_w),
-h (m_h),
-m_sdlTexture (NULL),
-m_w (0),
-m_h (0)
-{
-    setSdlTexture( sdlTexture, width, height );
+void TextureObj::render(const Transform& off) {
+    
+    SDL_Rect toRect;
+    
+    toRect.x  = (int)off.pos.x;
+    toRect.y  = (int)off.pos.y;
+    toRect.w  = (int)off.size.x;
+    toRect.h  = (int)off.size.y;
+    
+    SDL_RenderCopyEx( sdlRenderer, m_sdlTexture, NULL, &toRect, off.angle, NULL, SDL_FLIP_NONE);//(SDL_RendererFlip)flip );
 }
+
 
 void Texture:: setSdlTexture( SDL_Texture* sdlTexture, int width, int height )  {
     
@@ -240,14 +233,7 @@ void Texture:: setSdlTexture( SDL_Texture* sdlTexture, int width, int height )  
     
     return m_sdlTexture;
 }
-Texture& Texture::  operator = (const Texture& tex)  {
-    
-    this->m_sdlTexture = tex.m_sdlTexture;
-    this->m_w = tex.m_w;
-    this->m_h = tex.m_h;
-    
-    return *this;
-}
+
 
 
 

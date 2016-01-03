@@ -77,26 +77,29 @@ public:
     
 };
 
-
-class Texture : RenderObj {
+class Texture;
+class TextureObj : RenderObj {
+protected:
+    SDL_Texture*  m_sdlTexture;
 public:
-    const int& w;
-    const int& h;
+    void render(const Transform& off = Transform()) override;
+};
+
+class Texture : TextureObj {
+private:
+    int  m_w = 0;
+    int  m_h = 0;
+public:
+    const int& w = m_w;
+    const int& h= m_h;
     
-    Texture();
-	void render(const Transform& off = Transform()) override;
-    Texture( SDL_Texture* sdlTexture, int width, int height );
+    bool loadFromFile(cchar* filename);
+    
     
     void setSdlTexture( SDL_Texture* sdlTexture, int width, int height );
-    
               operator SDL_Texture* ();
-    Texture&  operator =            (const Texture& tex);
 
-private:
-    SDL_Texture*  m_sdlTexture;
-    
-    int  m_w;
-    int  m_h;
+
 };
 class Image        : public Object  {
 private:
