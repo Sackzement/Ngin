@@ -39,7 +39,7 @@ private:
 	
     
     
-    std::vector<Object*>         m_objects;
+    std::vector<Object>         m_objects;
 
 	std::vector<vfuncv>                m_collChecks;
     
@@ -75,7 +75,7 @@ public:
 	bool isKeyDownOnce(SDL_Scancode key);
 	bool isKeyUpOnce(SDL_Scancode key);
 
-	void addObject(Object* obj);
+	void addObject(Object& obj);
 	void addScript(std::function<void()> func);
 
 private:

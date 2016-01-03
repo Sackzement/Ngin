@@ -5,18 +5,14 @@
 #include <SDL/SDL_log.h>
 
 
-CRenderer renderer;
 
 
 
 
-CRendererFlags::CRendererFlags() :
-	software(SDL_RENDERER_SOFTWARE),
-	accel(SDL_RENDERER_ACCELERATED),
-	vsync(SDL_RENDERER_PRESENTVSYNC),
-	texture(SDL_RENDERER_TARGETTEXTURE)
-{}
-
+const int RendererFlags::software = SDL_RENDERER_SOFTWARE;
+const int RendererFlags::accel = SDL_RENDERER_ACCELERATED;
+const int RendererFlags::vsync = SDL_RENDERER_PRESENTVSYNC;
+const int RendererFlags::texture = SDL_RENDERER_TARGETTEXTURE;
 
 
 
@@ -25,7 +21,9 @@ CRendererFlags::CRendererFlags() :
 
 
 
-bool CRenderer::create(int index, int flag)
+
+
+bool Renderer::create(int index, int flag)
 {
 	if (sdlRenderer)
 		return true;
@@ -45,7 +43,7 @@ bool CRenderer::create(int index, int flag)
 
 
 
-void CRenderer::destroy() {
+void Renderer::destroy() {
 
 	SDL_DestroyRenderer(sdlRenderer);
 	sdlRenderer = nullptr;

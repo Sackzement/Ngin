@@ -3,29 +3,23 @@
 
 
 
-struct CRenderer;
-extern CRenderer renderer;
 
 
 
+struct RendererFlags {
 
-struct CRendererFlags {
-
-	const int software;
-	const int accel;
-	const int vsync;
-	const int texture;
-
-	CRendererFlags();
+	static const int software;
+	static const int accel;
+	static const int vsync;
+	static const int texture;
 };
 
 
 
-struct CRenderer {
+struct Renderer {
 
-	CRendererFlags flags;
-	bool create(int index = -1, int flag = renderer.flags.accel);
-	void destroy();
+	static bool create(int index = -1, int flag = RendererFlags::accel);
+	static void destroy();
 };
 
 

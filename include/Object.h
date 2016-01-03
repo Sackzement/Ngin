@@ -1,39 +1,47 @@
 #pragma once
-//#include <SDL/SDL_render.h>
+#include <SDL/SDL_render.h>
 #include <SDL/SDL_stdinc.h>
 #include "types.h"
 
+class Transform{
+public:
+	vec2<double>  pos = 0;
+	vec2<double>  size = 1;
+	double        angle = 0;
+};
+
+class InputObj {
+
+	virtual void input() = 0;
+};
+class UpdateObj {
+
+	virtual void update() = 0;
+};
+class RenderObj {
+
+	virtual void render(const Transform& off = Transform()) = 0;
+};
 
 
-
-class Object  {
+class Object : public Transform , public InputObj, public UpdateObj ,public RenderObj{
 
 public:
-    vec2<double>  pos;
-    vec2<double>  size;
-    
-    
-    
-    Object();
-    
-    virtual void input();
-    virtual void update();
-    virtual void render();
-    
-    void inputChildren()  const;
-    void updateChildren() const;
-    void renderChildren() const;
-    
-    bool hasParent() const;
-    Object* getParent() const;
-    void addParent(Object* newParent);
-    void removeParent();
-    
-    bool hasChildren() const;
-    std::vector<Object*> * getChildren() const;
-    bool hasChild(Object* ch) const;
-    void addChild(Object* ch);
-    void removeChild(Object* ch);
+          
+    void input() override;
+    void update() override;
+	void render(const Transform& off = Transform()) override;
+	
+private:
+	void inputChildren();
+    void updateChildren();
+    void renderChildren(const Transform& off = Transform());
+public:
+    //bool hasChildren() const;
+    //const std::vector<Object> & getChildren() const;
+    bool hasChild(const Object& ch) const;
+    void addChild(Object& ch);
+    void removeChild( Object& ch);
     void removeAllChildren();
     
     bool checkColl(const Object & otherGO, vec2<double> & inters) const;
@@ -41,8 +49,10 @@ public:
     
     
 protected:
-    Object*                m_parent;
-    std::vector<Object*> * m_children;
+    Object*                m_parent = nullptr;
+	std::vector<Object>   m_inputChildren;
+	std::vector<Object>   m_updateChildren;
+	std::vector<Object>   m_renderChildren;
     
 };
 
@@ -50,30 +60,31 @@ protected:
 
 
 
-class  Shape  : public Object  {
+class  Shape  : public RenderObj  {
 public:
-    SDL_Color      color;
+    SDL_Color      color = { 255,255,255,255 };
     
     Shape();
 };
 class  Rect   : public Shape   {
 public:
-    void render() override;
+    void render(const Transform& off = Transform())  override;
     
-};x
+};
 class  RectLine   : public Shape   {
 public:
-    void render() override;
+    void render(const Transform& off = Transform())  override;
     
 };
 
 
-class Texture  {
+class Texture : RenderObj {
 public:
     const int& w;
     const int& h;
     
     Texture();
+	void render(const Transform& off = Transform()) override;
     Texture( SDL_Texture* sdlTexture, int width, int height );
     
     void setSdlTexture( SDL_Texture* sdlTexture, int width, int height );
@@ -96,7 +107,7 @@ public:
     double     rot;
     
     Image();
-    void render() override;
+    void render(const Transform& off) override;
 };
 
 

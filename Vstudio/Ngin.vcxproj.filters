@@ -29,9 +29,6 @@
     <ClInclude Include="..\include\Time.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\lib.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\window.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -47,6 +44,12 @@
     <ClInclude Include="..\include\textures.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\objects.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libs.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Ngin.cpp">
@@ -56,9 +59,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Button.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\window.cpp">
@@ -74,6 +74,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\sdlRenderer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\libs.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

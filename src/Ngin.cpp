@@ -141,7 +141,7 @@ bool Ngin:: isKeyUpOnce(SDL_Scancode key)
 	return m_keyStatesOnceUp[key];
 }
 
-void Ngin::addObject(Object* obj)
+void Ngin::addObject(Object& obj)
 {
 	addScript( [this,obj] () { this->m_objects.push_back(obj); } );
 }
@@ -192,16 +192,14 @@ void    Ngin:: doInput()        {
         
     for (auto it = m_objects.begin(); it != m_objects.end(); ++it)  {
             
-        (*it)->input();
-        (*it)->inputChildren();
+        (*it).input();
     }
 }
 void    Ngin:: doUpdate()       {
         
         for (auto it = m_objects.begin(); it != m_objects.end(); ++it)  {
             
-            (*it)->update();
-            (*it)->updateChildren();
+            (*it).update();
         }
 }
 void    Ngin:: doCollision()      {
@@ -232,8 +230,7 @@ void    Ngin:: doRender()       {
         
         for (auto it = m_objects.begin(); it != m_objects.end(); ++it)  {
             
-            (*it)->render();
-            (*it)->renderChildren();
+            (*it).render();
         }
         
         SDL_RenderPresent(m_renderer);

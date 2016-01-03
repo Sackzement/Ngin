@@ -7,41 +7,35 @@ typedef unsigned int uint;
 
 
 
-struct CWindow;
-extern CWindow window;
 
 
-
-struct CWindowFlags {
-	const int fullscreen;
-    const int opengl;
-	const int shown;
-	const int hidden;
-	const int borderless;
-	const int resizable;
-	const int minimized;
-	const int maximized;
-	const int inputGrabbed;
-	const int inputFocus;
-	const int mouseFocus;
-	const int fullscreenDesktop;
-	const int foreign;
-	const int allowHighDPI;
-	const int mouseCapture;
-
-	CWindowFlags();
+struct WindowFlags {
+	static const int fullscreen;
+	static const int opengl;
+	static const int shown;
+	static const int hidden;
+	static const int borderless;
+	static const int resizable;
+	static const int minimized;
+	static const int maximized;
+	static const int inputGrabbed;
+	static const int inputFocus;
+	static const int mouseFocus;
+	static const int fullscreenDesktop;
+	static const int foreign;
+	static const int allowHighDPI;
+	static const int mouseCapture;
 };
 
 
 
 
 
-struct CWindow
+struct Window
 { 
-	const  CWindowFlags flags;
-	bool create(cchar* title = "Game", int xPos = 100, int yPos = 100, int width = 951, int height = 540, uint flag =  window.flags.shown);
-	bool setFullscreen(uint flag = window.flags.fullscreenDesktop);
-	void destroy();
+	static bool create(cchar* title = "Game", int xPos = 100, int yPos = 100, int width = 951, int height = 540, uint flag =  WindowFlags::shown);
+	static bool setFullscreen(uint flag = WindowFlags::fullscreenDesktop);
+	static void destroy();
 };
 
 

@@ -4,32 +4,29 @@
 #include <SDL/SDL.h>
 
 
-CWindow window;
 
 
 
-CWindowFlags:: CWindowFlags() :
-	fullscreen         (SDL_WINDOW_FULLSCREEN),
-	opengl             (SDL_WINDOW_OPENGL),
-	shown              (SDL_WINDOW_SHOWN),
-	hidden             (SDL_WINDOW_HIDDEN),
-	borderless         (SDL_WINDOW_BORDERLESS),
-	resizable          (SDL_WINDOW_RESIZABLE),
-	minimized          (SDL_WINDOW_MINIMIZED),
-	maximized          (SDL_WINDOW_MAXIMIZED),
-	inputGrabbed       (SDL_WINDOW_INPUT_GRABBED),
-	inputFocus         (SDL_WINDOW_INPUT_FOCUS),
-	mouseFocus         (SDL_WINDOW_MOUSE_FOCUS),
-	fullscreenDesktop  (SDL_WINDOW_FULLSCREEN_DESKTOP),
-	foreign            (SDL_WINDOW_FOREIGN),
-	allowHighDPI       (SDL_WINDOW_ALLOW_HIGHDPI),
-	mouseCapture       (SDL_WINDOW_MOUSE_CAPTURE)
-	{}
+const int WindowFlags::fullscreen = SDL_WINDOW_FULLSCREEN;
+const int WindowFlags::opengl =SDL_WINDOW_OPENGL;
+const int WindowFlags::shown =SDL_WINDOW_SHOWN;
+const int WindowFlags::hidden =SDL_WINDOW_HIDDEN;
+const int WindowFlags::borderless =SDL_WINDOW_BORDERLESS;
+const int WindowFlags::resizable =SDL_WINDOW_RESIZABLE;
+const int WindowFlags::minimized =SDL_WINDOW_MINIMIZED;
+const int WindowFlags::maximized =SDL_WINDOW_MAXIMIZED;
+const int WindowFlags::inputGrabbed =SDL_WINDOW_INPUT_GRABBED;
+const int WindowFlags::inputFocus =SDL_WINDOW_INPUT_FOCUS;
+const int WindowFlags::mouseFocus =SDL_WINDOW_MOUSE_FOCUS;
+const int WindowFlags::fullscreenDesktop =SDL_WINDOW_FULLSCREEN_DESKTOP;
+const int WindowFlags::foreign =SDL_WINDOW_FOREIGN;
+const int WindowFlags::allowHighDPI =SDL_WINDOW_ALLOW_HIGHDPI;
+const int WindowFlags::mouseCapture =SDL_WINDOW_MOUSE_CAPTURE;
 
 
 
 
-bool CWindow::create(cchar* title, int xPos, int yPos, int width, int height, uint flag) {
+bool Window::create(cchar* title, int xPos, int yPos, int width, int height, uint flag) {
 
 	if (sdlWindow)
 	{
@@ -49,14 +46,14 @@ bool CWindow::create(cchar* title, int xPos, int yPos, int width, int height, ui
 	}
 }
 
-void CWindow::destroy() {
+void Window::destroy() {
 	
 	SDL_DestroyWindow(sdlWindow);
 	sdlWindow = nullptr;
 }
 
 
-bool CWindow::setFullscreen(uint flag) {
+bool Window::setFullscreen(uint flag) {
 
 	if (SDL_SetWindowFullscreen(sdlWindow, flag) < 0) {
 		SDL_Log("Error:  Failed to set Fullscreen    %s", SDL_GetError());

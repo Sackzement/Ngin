@@ -7,159 +7,112 @@
 
 
 
-Object:: Object() :
 
-pos(0.),
-size(1.),
-
-m_parent(NULL),
-m_children(NULL)
-{}
-
-
-
-void Object:: input()   {}
-void Object:: update()  {}
-void Object:: render()  {}
-
-bool Object:: hasParent() const  {
-    
-    if (m_parent)
-        return true;
-    else
-        return false;
+void Object:: input()   {
+	inputChildren();
 }
-Object * Object:: getParent() const  {
-    
-    return m_parent;
+void Object:: update()  {
+	updateChildren();
 }
-void Object:: addParent(Object* newParent)  {
-    
-    if (newParent  &&  newParent != m_parent)  {
-        
-        if (m_parent) {
-            Object * oldParent = m_parent;
-            m_parent = NULL;
-            
-            oldParent->removeChild(this);
-        }
-    
-        m_parent = newParent;
-        m_parent->addChild(this);
-    }
-}
+void Object::render(const Transform& off)  {
 
-void Object:: removeParent()  {
-    
-    if (m_parent)  {
-        Object* oldParent = m_parent;
-        m_parent = NULL;
-        
-        oldParent->removeChild(this);
-    }
+	Transform newTrans;
+
+	newTrans.pos = off.pos + (this->pos * off.size);
+	newTrans.size = this->size * off.size;
+	newTrans.angle = this->angle + off.angle;
+
+	// render this
+
+	renderChildren(newTrans);
 }
 
 
-bool Object::    hasChildren ()               const  {
+
+
+/*bool Object::    hasChildren ()               const  {
     
-    if ( m_children == NULL
-        || m_children->empty() )
-        return false;
-    else
-        return true;
-}
-std::vector<Object*> * Object::  getChildren() const  {
+	return ! m_children.empty();
+}*/
+/*const std::vector<Object> & Object::  getChildren() const  {
     
     return m_children;
+}*/
+bool Object::       hasChild (const Object& ch) const  {
+
+	{
+		auto itEnd = m_inputChildren.end();
+		for (auto it = m_inputChildren.begin(); it != itEnd; ++it) {
+			if (&ch == &(*it))
+				return true;
+		}
+	}
+	{
+		auto itEnd = m_updateChildren.end();
+
+		for (auto it = m_updateChildren.begin(); it != itEnd; ++it) {
+
+			if (&ch == &(*it))
+				return true;
+		}
+	}
+	{
+		auto itEnd = m_renderChildren.end();
+
+		for (auto it = m_renderChildren.begin(); it != itEnd; ++it) {
+
+			if (&ch == &(*it))
+				return true;
+		}
+	}
+	return false;
 }
-bool Object::       hasChild (Object* ch) const  {
-    
-    if ( m_children != NULL
-        && std::find(m_children->begin(),m_children->end(),ch) != m_children->end() )
-        return true;
-    else
-        return false;
+void Object::  inputChildren ()                 {
+
+	auto itEnd = m_inputChildren.end();
+    for (auto it = m_inputChildren.begin(); it != itEnd; ++it)
+        (*it).input();
 }
-void Object::  inputChildren ()               const  {
+void Object:: updateChildren ()                 {
     
-    if ( hasChildren() )  {
-        
-        std::vector<Object*>::iterator it;
-        for (it = m_children->begin(); it != m_children->end(); ++it)  {
-            
-            (*it)->input();
-            (*it)->inputChildren();
-        }
-    }
+	auto itEnd = m_updateChildren.end();
+    for (auto it = m_updateChildren.begin(); it != itEnd; ++it)
+        (*it).update();
 }
-void Object:: updateChildren ()               const  {
-    
-    if ( hasChildren() )  {
-        
-        std::vector<Object*>::iterator it;
-        for (it = m_children->begin(); it != m_children->end(); ++it)  {
-            
-            (*it)->update();
-            (*it)->updateChildren();
-        }
-    }
-}
-void Object:: renderChildren ()               const  {
-    
-    if ( hasChildren() )  {
-        
-        std::vector<Object*>::iterator it;
-        for (it = m_children->begin(); it != m_children->end(); ++it)  {
-            
-            vec2<double> posBKP   = (*it)->pos;
-            vec2<double> sizeBKP  = (*it)->size;
-            
-            (*it)->pos   =  this->pos + ((*it)->pos * this->size);
-            (*it)->size  *= this->size;
-            
-            (*it)->render();
-            (*it)->renderChildren();
-            
-            (*it)->pos  = posBKP;
-            (*it)->size = sizeBKP;
-        }
-    }
+void Object::renderChildren(const Transform& off)  {
+
+	auto itEnd = m_renderChildren.end();
+	for (auto it = m_renderChildren.begin(); it != itEnd; ++it)
+		(*it).render(off);
 }
 
-void Object::    addChild (Object* ch)  {
+void Object::    addChild (Object& ch)  {
     
-    if ( ch )  {
-        
-        if ( ! m_children )
-            m_children = new std::vector<Object*>();
-            
-        if ( ! hasChild(ch) )  {
-            m_children->push_back(ch);
-            ch->addParent(this);
-        }
+    if ( ! hasChild(ch) )  {
+		m_inputChildren.push_back(ch);
+		m_updateChildren.push_back(ch);
+		m_renderChildren.push_back(ch);
     }
     
 }
-void Object:: removeChild (Object* ch)  {
+/*void Object:: removeChild (Object& ch)  {
     
-    if (ch && m_children)  {
+	auto itEnd = m_children.end();
+	for (auto it = m_children.begin(); it != itEnd; ++it) {
         
-        std::vector<Object*>::iterator it;
-        it  = std::find(m_children->begin(),m_children->end(),ch);
-        
-        if (it != m_children->end() )  {
-            Object* oldChild = *it;
-            m_children->erase(it);
-            oldChild->removeParent();
-            
-            if ( m_children->empty() )
-                delete m_children;
-        }
+		if ( &ch == &(*it) ) {
+
+			m_children.erase(it);
+			ch.removeParent();
+		}
     }
-}
+
+}*/
 void Object:: removeAllChildren ()  {
-    
-    delete m_children;
+
+	m_inputChildren.clear();
+	m_updateChildren.clear();
+	m_renderChildren.clear();
 }
 
 bool Object:: checkColl (const Object & otherGO, vec2<double> & inters) const  {
@@ -216,23 +169,19 @@ bool Object:: checkColl (const Object & otherGO, vec2<double> & inters) const  {
 
 
 
-Shape:: Shape() :
-Object (),
-color({255,255,255,255})
-{}
 
 
 
 
 
 
-void Rect:: render()  {
+void Rect::render(const Transform& off)  {
     
     SDL_Rect rect = {};
-    rect.x = static_cast<int>( pos.x );
-    rect.y = static_cast<int>( pos.y );
-    rect.w = static_cast<int>( size.x );
-    rect.h = static_cast<int>( size.y );
+    rect.x = static_cast<int>( off.pos.x );
+    rect.y = static_cast<int>( off.pos.y );
+    rect.w = static_cast<int>(off.size.x );
+    rect.h = static_cast<int>(off.size.y );
     
     SDL_SetRenderDrawColor(sdlRenderer, color.r, color.g, color.b, color.a);
     SDL_RenderFillRect(sdlRenderer, &rect);
@@ -243,13 +192,14 @@ void Rect:: render()  {
 
 
 
-void RectLine:: render()  {
+void RectLine::render(const Transform& off)  {
     
-    SDL_Rect rect = {};
-    rect.x = static_cast<int>( pos.x );
-    rect.y = static_cast<int>( pos.y );
-    rect.w = static_cast<int>( size.x );
-    rect.h = static_cast<int>( size.y );
+	SDL_Rect rect = {
+	static_cast<int>(off.pos.x),
+	static_cast<int>(off.pos.y),
+	static_cast<int>(off.size.x),
+	static_cast<int>(off.size.y)
+	};
     
     SDL_SetRenderDrawColor(sdlRenderer, color.r, color.g, color.b, color.a);
     SDL_RenderDrawRect(sdlRenderer, &rect);
@@ -313,7 +263,7 @@ Image::  Image () :
            rot (0.)
 {}
 
-void Image::  render()  {
+void Image::render(const Transform& off) {
     
     SDL_Rect toRect;
     
@@ -322,7 +272,7 @@ void Image::  render()  {
     toRect.w  = int( size.x * (float)texture.w );
     toRect.h  = int( size.y * (float)texture.h );
     
-    SDL_RenderCopyEx( sdlRenderer, texture, m_clipRect, &toRect, rot, NULL, (SDL_RendererFlip)flip );
+    //SDL_RenderCopyEx( sdlRenderer, texture, m_clipRect, &toRect, rot, NULL, (SDL_RendererFlip)flip );
 }
 
 

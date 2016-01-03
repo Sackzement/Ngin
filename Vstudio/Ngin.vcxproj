@@ -20,9 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Button.h" />
-    <ClInclude Include="..\include\lib.h" />
+    <ClInclude Include="..\include\libs.h" />
     <ClInclude Include="..\include\Ngin.h" />
     <ClInclude Include="..\include\Object.h" />
+    <ClInclude Include="..\include\objects.h" />
     <ClInclude Include="..\include\renderer.h" />
     <ClInclude Include="..\include\sdf.h" />
     <ClInclude Include="..\include\textures.h" />
@@ -34,7 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Button.cpp" />
-    <ClCompile Include="..\src\lib.cpp" />
+    <ClCompile Include="..\src\libs.cpp" />
     <ClCompile Include="..\src\Ngin.cpp" />
     <ClCompile Include="..\src\Object.cpp" />
     <ClCompile Include="..\src\renderer.cpp" />
