@@ -4,4 +4,3 @@
 
 extern SDL_Window* sdlWindow ;
 
-

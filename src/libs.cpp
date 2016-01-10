@@ -9,8 +9,6 @@
 
 
 
-
-
 int initLibs() {
 
 	// INIT SDL
