@@ -20,29 +20,35 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Button.h" />
+    <ClInclude Include="..\include\FlagsInit.h" />
+    <ClInclude Include="..\include\FlagsRenderer.h" />
+    <ClInclude Include="..\include\FlagsWindow.h" />
     <ClInclude Include="..\include\libs.h" />
     <ClInclude Include="..\include\Ngin.h" />
     <ClInclude Include="..\include\Object.h" />
     <ClInclude Include="..\include\objects.h" />
-    <ClInclude Include="..\include\renderer.h" />
+    <ClInclude Include="..\include\Renderer.h" />
     <ClInclude Include="..\include\sdf.h" />
+    <ClInclude Include="..\include\tajm.h" />
     <ClInclude Include="..\include\textures.h" />
-    <ClInclude Include="..\include\Time.h" />
     <ClInclude Include="..\include\types.h" />
-    <ClInclude Include="..\include\window.h" />
+    <ClInclude Include="..\include\Window.h" />
     <ClInclude Include="..\src\sdlRenderer.h" />
     <ClInclude Include="..\src\sdlWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Button.cpp" />
+    <ClCompile Include="..\src\FlagsInit.cpp" />
+    <ClCompile Include="..\src\FlagsRenderer.cpp" />
+    <ClCompile Include="..\src\FlagsWindow.cpp" />
     <ClCompile Include="..\src\libs.cpp" />
     <ClCompile Include="..\src\Ngin.cpp" />
     <ClCompile Include="..\src\Object.cpp" />
-    <ClCompile Include="..\src\renderer.cpp" />
+    <ClCompile Include="..\src\Renderer.cpp" />
     <ClCompile Include="..\src\sdlRenderer.cpp" />
     <ClCompile Include="..\src\sdlWindow.cpp" />
     <ClCompile Include="..\src\textures.cpp" />
-    <ClCompile Include="..\src\window.cpp" />
+    <ClCompile Include="..\src\Window.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D68E8CCA-F829-483A-AF37-3C47DF8BD8AC}</ProjectGuid>
