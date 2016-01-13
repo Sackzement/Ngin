@@ -11,28 +11,46 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\Object.h">
+    <ClInclude Include="..\include\Button.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\sdf.h">
+    <ClInclude Include="..\include\FlagsInit.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\types.h">
+    <ClInclude Include="..\include\FlagsRenderer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\FlagsWindow.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libs.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Ngin.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Button.h">
+    <ClInclude Include="..\include\Object.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Time.h">
+    <ClInclude Include="..\include\objects.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\window.h">
+    <ClInclude Include="..\include\Renderer.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\renderer.h">
+    <ClInclude Include="..\include\sdf.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tajm.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\textures.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\types.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Window.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\src\sdlRenderer.h">
@@ -41,42 +59,42 @@
     <ClInclude Include="..\src\sdlWindow.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\textures.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\objects.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\libs.h">
-      <Filter>include</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Button.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FlagsInit.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FlagsRenderer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FlagsWindow.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\libs.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\Ngin.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Object.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Button.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\window.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\renderer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\textures.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\sdlWindow.cpp">
+    <ClCompile Include="..\src\Renderer.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\sdlRenderer.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\libs.cpp">
+    <ClCompile Include="..\src\sdlWindow.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\textures.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Window.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

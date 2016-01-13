@@ -1,7 +1,5 @@
 
-#include "../include/renderer.h"
-#include "sdlWindow.h"
-#include "sdlRenderer.h"
+#include "../include/Renderer.h"
 #include <SDL/SDL_log.h>
 
 
@@ -9,10 +7,6 @@
 
 
 
-const int RendererFlags::software = SDL_RENDERER_SOFTWARE;
-const int RendererFlags::accel = SDL_RENDERER_ACCELERATED;
-const int RendererFlags::vsync = SDL_RENDERER_PRESENTVSYNC;
-const int RendererFlags::texture = SDL_RENDERER_TARGETTEXTURE;
 
 
 
@@ -21,19 +15,17 @@ const int RendererFlags::texture = SDL_RENDERER_TARGETTEXTURE;
 
 
 
-
-
-bool Renderer::create(int index, int flag)
+bool Renderer::create(Window& win, int index, Uint32 flag)
 {
-	if (sdlRenderer)
+	if (m_sdlRenderer)
 		return true;
 
-	sdlRenderer= SDL_GetRenderer(sdlWindow);
-	if (sdlRenderer)
+	m_sdlRenderer = SDL_GetRenderer(win);
+	if (m_sdlRenderer)
 		return true;
 
-	sdlRenderer = SDL_CreateRenderer(sdlWindow, index, flag);
-	if (!sdlRenderer) {
+	m_sdlRenderer = SDL_CreateRenderer(win, index, flag);
+	if (!m_sdlRenderer) {
 		SDL_Log("Error:  Failed to create renderer  %s", SDL_GetError());
 		return false;
 	}
@@ -45,6 +37,11 @@ bool Renderer::create(int index, int flag)
 
 void Renderer::destroy() {
 
-	SDL_DestroyRenderer(sdlRenderer);
-	sdlRenderer = nullptr;
+	SDL_DestroyRenderer(m_sdlRenderer);
+	m_sdlRenderer = nullptr;
+}
+
+
+Renderer:: operator SDL_Renderer * const () {
+	return m_sdlRenderer;
 }
