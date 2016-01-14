@@ -31,6 +31,7 @@
     <ClInclude Include="..\include\sdf.h" />
     <ClInclude Include="..\include\tajm.h" />
     <ClInclude Include="..\include\textures.h" />
+    <ClInclude Include="..\include\TimeManager.h" />
     <ClInclude Include="..\include\types.h" />
     <ClInclude Include="..\include\Window.h" />
     <ClInclude Include="..\src\sdlRenderer.h" />
@@ -48,6 +49,7 @@
     <ClCompile Include="..\src\sdlRenderer.cpp" />
     <ClCompile Include="..\src\sdlWindow.cpp" />
     <ClCompile Include="..\src\textures.cpp" />
+    <ClCompile Include="..\src\TimeManager.cpp" />
     <ClCompile Include="..\src\Window.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
