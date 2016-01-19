@@ -44,13 +44,10 @@ void    TimeManager::delay() {
 	Uint32 lastDelayTime = m_delayTime;
 	m_delayTime = SDL_GetTicks();
 
-	Uint32 diff = m_delayTime - lastDelayTime;
+	double diff = static_cast<double>(m_delayTime - lastDelayTime);
 
-	if (static_cast<double>(diff) < m_msPerFrame) {
-
-		Uint32 toWait = Uint32(m_msPerFrame - static_cast<double>(diff));
-		SDL_Delay(toWait);
-	}
+	if (diff < m_msPerFrame)
+		SDL_Delay( static_cast<Uint32>(m_msPerFrame - diff) );
 
 	m_delayTime = SDL_GetTicks();
 }
