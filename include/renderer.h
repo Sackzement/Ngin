@@ -4,6 +4,8 @@
 #include "Window.h"
 #include"FlagsRenderer.h"
 
+#include <vector>
+using std::vector;
 
 
 
@@ -18,6 +20,8 @@ private:
 public:
 	bool create(Window& win, int index = -1, Uint32 flag =  Flags::Renderer::accelerated);
 	void destroy();
+
+	void render(const vector<> & textures);
 
 	operator SDL_Renderer * const ();
 };
