@@ -18,6 +18,14 @@
 		A7982FF31C3A10900020CD52 /* sdlWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A7982FE81C3A10900020CD52 /* sdlWindow.h */; };
 		A7982FF41C3A10900020CD52 /* textures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7982FE91C3A10900020CD52 /* textures.cpp */; };
 		A7982FF51C3A10900020CD52 /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7982FEA1C3A10900020CD52 /* window.cpp */; };
+		A7CD8A5C1C50A34400EFF92C /* FlagsInit.h in Headers */ = {isa = PBXBuildFile; fileRef = A7CD8A581C50A34400EFF92C /* FlagsInit.h */; };
+		A7CD8A5D1C50A34400EFF92C /* FlagsRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = A7CD8A591C50A34400EFF92C /* FlagsRenderer.h */; };
+		A7CD8A5E1C50A34400EFF92C /* FlagsWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A7CD8A5A1C50A34400EFF92C /* FlagsWindow.h */; };
+		A7CD8A5F1C50A34400EFF92C /* TimeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A7CD8A5B1C50A34400EFF92C /* TimeManager.h */; };
+		A7CD8A641C50A35000EFF92C /* FlagsInit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7CD8A601C50A35000EFF92C /* FlagsInit.cpp */; };
+		A7CD8A651C50A35000EFF92C /* FlagsRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7CD8A611C50A35000EFF92C /* FlagsRenderer.cpp */; };
+		A7CD8A661C50A35000EFF92C /* FlagsWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7CD8A621C50A35000EFF92C /* FlagsWindow.cpp */; };
+		A7CD8A671C50A35000EFF92C /* TimeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7CD8A631C50A35000EFF92C /* TimeManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +53,14 @@
 		A79830011C3A10A80020CD52 /* window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = window.h; sourceTree = "<group>"; };
 		A7B0C4131C18ECBB006B44D8 /* Ngin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Ngin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B0C4181C18ECBB006B44D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7CD8A581C50A34400EFF92C /* FlagsInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlagsInit.h; sourceTree = "<group>"; };
+		A7CD8A591C50A34400EFF92C /* FlagsRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlagsRenderer.h; sourceTree = "<group>"; };
+		A7CD8A5A1C50A34400EFF92C /* FlagsWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlagsWindow.h; sourceTree = "<group>"; };
+		A7CD8A5B1C50A34400EFF92C /* TimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeManager.h; sourceTree = "<group>"; };
+		A7CD8A601C50A35000EFF92C /* FlagsInit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlagsInit.cpp; sourceTree = "<group>"; };
+		A7CD8A611C50A35000EFF92C /* FlagsRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlagsRenderer.cpp; sourceTree = "<group>"; };
+		A7CD8A621C50A35000EFF92C /* FlagsWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlagsWindow.cpp; sourceTree = "<group>"; };
+		A7CD8A631C50A35000EFF92C /* TimeManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeManager.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +77,10 @@
 		A7982FDF1C3A10900020CD52 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A7CD8A601C50A35000EFF92C /* FlagsInit.cpp */,
+				A7CD8A611C50A35000EFF92C /* FlagsRenderer.cpp */,
+				A7CD8A621C50A35000EFF92C /* FlagsWindow.cpp */,
+				A7CD8A631C50A35000EFF92C /* TimeManager.cpp */,
 				A7982FE01C3A10900020CD52 /* Button.cpp */,
 				A7982FE11C3A10900020CD52 /* libs.cpp */,
 				A7982FE21C3A10900020CD52 /* Ngin.cpp */,
@@ -80,6 +100,10 @@
 		A7982FF61C3A10A80020CD52 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				A7CD8A581C50A34400EFF92C /* FlagsInit.h */,
+				A7CD8A591C50A34400EFF92C /* FlagsRenderer.h */,
+				A7CD8A5A1C50A34400EFF92C /* FlagsWindow.h */,
+				A7CD8A5B1C50A34400EFF92C /* TimeManager.h */,
 				A7982FF71C3A10A80020CD52 /* Button.h */,
 				A7982FF81C3A10A80020CD52 /* libs.h */,
 				A7982FF91C3A10A80020CD52 /* Ngin.h */,
@@ -121,6 +145,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7CD8A5E1C50A34400EFF92C /* FlagsWindow.h in Headers */,
+				A7CD8A5F1C50A34400EFF92C /* TimeManager.h in Headers */,
+				A7CD8A5C1C50A34400EFF92C /* FlagsInit.h in Headers */,
+				A7CD8A5D1C50A34400EFF92C /* FlagsRenderer.h in Headers */,
 				A7982FF31C3A10900020CD52 /* sdlWindow.h in Headers */,
 				A7982FF11C3A10900020CD52 /* sdlRenderer.h in Headers */,
 			);
@@ -196,8 +224,12 @@
 				A7982FED1C3A10900020CD52 /* Ngin.cpp in Sources */,
 				A7982FF41C3A10900020CD52 /* textures.cpp in Sources */,
 				A7982FEB1C3A10900020CD52 /* Button.cpp in Sources */,
+				A7CD8A651C50A35000EFF92C /* FlagsRenderer.cpp in Sources */,
+				A7CD8A671C50A35000EFF92C /* TimeManager.cpp in Sources */,
 				A7982FEF1C3A10900020CD52 /* renderer.cpp in Sources */,
+				A7CD8A661C50A35000EFF92C /* FlagsWindow.cpp in Sources */,
 				A7982FF21C3A10900020CD52 /* sdlWindow.cpp in Sources */,
+				A7CD8A641C50A35000EFF92C /* FlagsInit.cpp in Sources */,
 				A7982FEE1C3A10900020CD52 /* Object.cpp in Sources */,
 				A7982FF51C3A10900020CD52 /* window.cpp in Sources */,
 				A7982FF01C3A10900020CD52 /* sdlRenderer.cpp in Sources */,
