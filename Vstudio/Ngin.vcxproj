@@ -29,6 +29,7 @@
     <ClInclude Include="..\include\Object.h" />
     <ClInclude Include="..\include\objects.h" />
     <ClInclude Include="..\include\Renderer.h" />
+    <ClInclude Include="..\include\Scene.h" />
     <ClInclude Include="..\include\sdf.h" />
     <ClInclude Include="..\include\tajm.h" />
     <ClInclude Include="..\include\textures.h" />
@@ -48,6 +49,7 @@
     <ClCompile Include="..\src\Ngin.cpp" />
     <ClCompile Include="..\src\Object.cpp" />
     <ClCompile Include="..\src\Renderer.cpp" />
+    <ClCompile Include="..\src\Scene.cpp" />
     <ClCompile Include="..\src\sdlRenderer.cpp" />
     <ClCompile Include="..\src\sdlWindow.cpp" />
     <ClCompile Include="..\src\textures.cpp" />

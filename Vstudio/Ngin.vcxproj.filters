@@ -65,6 +65,9 @@
     <ClInclude Include="..\include\HardwareInfo.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Scene.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Button.cpp">
@@ -107,6 +110,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\HardwareInfo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
