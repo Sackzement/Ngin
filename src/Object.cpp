@@ -206,6 +206,7 @@ void RectLine::render(const Transform& off)  {
 }
 
 
+std::map<const std::string, Texture> m_textures = std::map<const std::string, Texture>();
 
 
 
@@ -222,17 +223,7 @@ void TextureObj::render(const Transform& off) {
 }
 
 
-void Texture:: setSdlTexture( SDL_Texture* sdlTexture, int width, int height )  {
-    
-    m_sdlTexture = sdlTexture;
-    
-    m_w  = width;
-    m_h  = height;
-}
-         Texture::  operator SDL_Texture* () {
-    
-    return m_sdlTexture;
-}
+
 
 
 
@@ -255,8 +246,8 @@ void Image::render(const Transform& off) {
     
     toRect.x  = (int)pos.x;
 	toRect.y  = (int)pos.y;
-    toRect.w  = int( size.x * (float)texture.w );
-    toRect.h  = int( size.y * (float)texture.h );
+    toRect.w  = int( size.x * (float)texture.width );
+    toRect.h  = int( size.y * (float)texture.height );
     
     //SDL_RenderCopyEx( sdlRenderer, texture, m_clipRect, &toRect, rot, NULL, (SDL_RendererFlip)flip );
 }

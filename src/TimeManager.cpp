@@ -3,33 +3,19 @@
 
 
 
-Uint32 TimeManager::getGameTime() const {
-	return m_gameTime;
-}
-double TimeManager::getDeltaTime() const {
-	return m_deltaTime;
-}
-Uint32 TimeManager::getFPS() const {
-	return m_fps;
-}
-double TimeManager::getFPSreal() const {
-	return m_fpsReal;
-}
-
-
-void    TimeManager::setFPS(const Uint16& newFPS) {
+void    Time::setFPS(const Uint16& newFPS) {
 
 	m_fps = newFPS;
 	m_msPerFrame = 1000. / static_cast<double>(m_fps);
 }
 
-void    TimeManager::resetDelay() {
+void    Time::resetDelay() {
 
 	m_delayTime = m_gameTime;
 }
 
 
-void    TimeManager::calcGameAndDeltaTime() {
+void    Time::update() {
 
 	Uint32 lastGameTime = m_gameTime;
 	m_gameTime = SDL_GetTicks();
@@ -39,7 +25,7 @@ void    TimeManager::calcGameAndDeltaTime() {
 	m_fpsReal = 1000. / diff;
 }
 
-void    TimeManager::delay() {
+void    Time::delay() {
 
 	Uint32 lastDelayTime = m_delayTime;
 	m_delayTime = SDL_GetTicks();

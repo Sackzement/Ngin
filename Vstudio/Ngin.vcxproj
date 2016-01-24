@@ -24,7 +24,9 @@
     <ClInclude Include="..\include\FlagsRenderer.h" />
     <ClInclude Include="..\include\FlagsWindow.h" />
     <ClInclude Include="..\include\HardwareInfo.h" />
+    <ClInclude Include="..\include\Keyboard.h" />
     <ClInclude Include="..\include\libs.h" />
+    <ClInclude Include="..\include\Log.h" />
     <ClInclude Include="..\include\Ngin.h" />
     <ClInclude Include="..\include\Object.h" />
     <ClInclude Include="..\include\objects.h" />
@@ -46,6 +48,7 @@
     <ClCompile Include="..\src\FlagsWindow.cpp" />
     <ClCompile Include="..\src\HardwareInfo.cpp" />
     <ClCompile Include="..\src\libs.cpp" />
+    <ClCompile Include="..\src\Log.cpp" />
     <ClCompile Include="..\src\Ngin.cpp" />
     <ClCompile Include="..\src\Object.cpp" />
     <ClCompile Include="..\src\Renderer.cpp" />

@@ -66,6 +66,13 @@ public:
     
     Shape();
 };
+class Point {
+public:
+	//vec<2, int> pos;
+	void render(SDL_Renderer* ren) {
+		//SDL_RenderDrawPoint(ren, pos.x, pos.y);
+	}
+};
 class  Rect   : public Shape   {
 public:
     void render(const Transform& off = Transform())  override;
@@ -85,21 +92,56 @@ public:
     void render(const Transform& off = Transform()) override;
 };
 
-class Texture : TextureObj {
-private:
-    int  m_w = 0;
-    int  m_h = 0;
+#include "Log.h"
+#include <SDL\SDL_image.h>
+#include <map>
+class Texture {
+
+	SDL_Texture*  m_sdlTexture = nullptr;
+	int m_width = 0;
+	int m_height = 0;
+	static std::map<const std::string, Texture> m_textures;
 public:
-    const int& w = m_w;
-    const int& h= m_h;
-    
-    bool loadFromFile(cchar* filename);
-    
-    
-    void setSdlTexture( SDL_Texture* sdlTexture, int width, int height );
-              operator SDL_Texture* ();
+	operator SDL_Texture * () {
+		return m_sdlTexture;
+	}
+    const int & width = m_width;
+    const int & height = m_height;
+	static void unloadAll() {
 
+		auto it = m_textures.begin();
+		auto end = m_textures.end();
 
+		for (; it != end; ++it)
+			it->second.unload();
+		
+		m_textures.clear();
+	}
+    
+
+	void load(SDL_Renderer* ren, std::string path) {
+
+		SDL_Surface* temp_surf = IMG_Load(path.c_str());
+
+		if ( ! temp_surf )
+			Log(std::string("\n") + SDL_GetError());
+		else {
+			m_sdlTexture = SDL_CreateTextureFromSurface(ren, temp_surf);
+			if ( ! m_sdlTexture )
+				Log(std::string("\n") + SDL_GetError());
+
+			SDL_FreeSurface(temp_surf);
+		}
+	}
+	void unload() {
+		SDL_DestroyTexture(m_sdlTexture);
+	}
+    void setTexture( const Texture & tex ) {
+		
+		m_sdlTexture = tex.m_sdlTexture;
+		m_width = tex.width;
+		m_height = tex.height;
+	}
 };
 class Image        : public Object  {
 private:
