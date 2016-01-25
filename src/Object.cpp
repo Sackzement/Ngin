@@ -1,7 +1,6 @@
 //#include <algorithm>
 #include "../include/Object.h"
-#include "sdlRenderer.h"
-
+#include "../include/Renderer.h"
 
 
 
@@ -14,7 +13,7 @@ void Object:: input()   {
 void Object:: update()  {
 	updateChildren();
 }
-void Object::render(const Transform& off)  {
+void Object::render(Renderer& ren, const Transform& off)  {
 
 	Transform newTrans;
 
@@ -24,7 +23,7 @@ void Object::render(const Transform& off)  {
 
 	// render this
 
-	renderChildren(newTrans);
+	renderChildren(ren,newTrans);
 }
 
 
@@ -79,11 +78,11 @@ void Object:: updateChildren ()                 {
     for (auto it = m_updateChildren.begin(); it != itEnd; ++it)
         (*it).update();
 }
-void Object::renderChildren(const Transform& off)  {
+void Object::renderChildren(Renderer& ren, const Transform& off)  {
 
 	auto itEnd = m_renderChildren.end();
 	for (auto it = m_renderChildren.begin(); it != itEnd; ++it)
-		(*it).render(off);
+		(*it).render(ren,off);
 }
 
 void Object::    addChild (Object& ch)  {
@@ -175,7 +174,7 @@ bool Object:: checkColl (const Object & otherGO, vec2<double> & inters) const  {
 
 
 
-void Rect::render(const Transform& off)  {
+void Rect::render(Renderer& ren,const Transform& off)  {
     
     SDL_Rect rect = {};
     rect.x = static_cast<int>( off.pos.x );
@@ -183,8 +182,8 @@ void Rect::render(const Transform& off)  {
     rect.w = static_cast<int>(off.size.x );
     rect.h = static_cast<int>(off.size.y );
     
-    SDL_SetRenderDrawColor(sdlRenderer, color.r, color.g, color.b, color.a);
-    SDL_RenderFillRect(sdlRenderer, &rect);
+    SDL_SetRenderDrawColor(ren, color.r, color.g, color.b, color.a);
+    SDL_RenderFillRect(ren, &rect);
 }
 
 
@@ -192,7 +191,7 @@ void Rect::render(const Transform& off)  {
 
 
 
-void RectLine::render(const Transform& off)  {
+void RectLine::render(Renderer& ren, const Transform& off)  {
     
 	SDL_Rect rect = {
 	static_cast<int>(off.pos.x),
@@ -201,16 +200,16 @@ void RectLine::render(const Transform& off)  {
 	static_cast<int>(off.size.y)
 	};
     
-    SDL_SetRenderDrawColor(sdlRenderer, color.r, color.g, color.b, color.a);
-    SDL_RenderDrawRect(sdlRenderer, &rect);
+    SDL_SetRenderDrawColor(ren, color.r, color.g, color.b, color.a);
+    SDL_RenderDrawRect(ren, &rect);
 }
 
 
-std::map<const std::string, Texture> m_textures = std::map<const std::string, Texture>();
+//std::map<const std::string, Texture> m_textures = std::map<const std::string, Texture>();
 
 
 
-void TextureObj::render(const Transform& off) {
+/*void TextureObj::render(Renderer& ren, const Transform& off) {
     
     SDL_Rect toRect;
     
@@ -219,8 +218,8 @@ void TextureObj::render(const Transform& off) {
     toRect.w  = (int)off.size.x;
     toRect.h  = (int)off.size.y;
     
-    SDL_RenderCopyEx( sdlRenderer, m_sdlTexture, NULL, &toRect, off.angle, NULL, SDL_FLIP_NONE);//(SDL_RendererFlip)flip );
-}
+    SDL_RenderCopyEx( ren, m_sdlTexture, NULL, &toRect, off.angle, NULL, SDL_FLIP_NONE);//(SDL_RendererFlip)flip );
+}*/
 
 
 
@@ -240,7 +239,7 @@ Image::  Image () :
            rot (0.)
 {}
 
-void Image::render(const Transform& off) {
+void Image::render(Renderer& ren,const Transform& off) {
     
     SDL_Rect toRect;
     

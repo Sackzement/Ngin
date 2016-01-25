@@ -1,4 +1,4 @@
 #pragma once
 
 #include <string>
-void Log(std::string str);
+void Log(const std::string & str);

@@ -34,12 +34,10 @@
     <ClInclude Include="..\include\Scene.h" />
     <ClInclude Include="..\include\sdf.h" />
     <ClInclude Include="..\include\tajm.h" />
-    <ClInclude Include="..\include\textures.h" />
+    <ClInclude Include="..\include\Texture.h" />
     <ClInclude Include="..\include\TimeManager.h" />
     <ClInclude Include="..\include\types.h" />
     <ClInclude Include="..\include\Window.h" />
-    <ClInclude Include="..\src\sdlRenderer.h" />
-    <ClInclude Include="..\src\sdlWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Button.cpp" />
@@ -53,9 +51,7 @@
     <ClCompile Include="..\src\Object.cpp" />
     <ClCompile Include="..\src\Renderer.cpp" />
     <ClCompile Include="..\src\Scene.cpp" />
-    <ClCompile Include="..\src\sdlRenderer.cpp" />
-    <ClCompile Include="..\src\sdlWindow.cpp" />
-    <ClCompile Include="..\src\textures.cpp" />
+    <ClCompile Include="..\src\Texture.cpp" />
     <ClCompile Include="..\src\TimeManager.cpp" />
     <ClCompile Include="..\src\Window.cpp" />
   </ItemGroup>

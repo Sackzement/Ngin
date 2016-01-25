@@ -2,6 +2,7 @@
 #include <SDL/SDL_render.h>
 #include <SDL/SDL_stdinc.h>
 #include "types.h"
+#include "Renderer.h"
 
 class Transform{
 public:
@@ -20,7 +21,7 @@ class UpdateObj {
 };
 class RenderObj {
 
-	virtual void render(const Transform& off = Transform()) = 0;
+	virtual void render(Renderer& ren,const Transform& off = Transform()) = 0;
 };
 
 
@@ -30,12 +31,12 @@ public:
           
     void input() override;
     void update() override;
-	void render(const Transform& off = Transform()) override;
+	void render(Renderer& ren, const Transform& off = Transform()) override;
 	
 private:
 	void inputChildren();
     void updateChildren();
-    void renderChildren(const Transform& off = Transform());
+    void renderChildren(Renderer& ren, const Transform& off = Transform());
 public:
     //bool hasChildren() const;
     //const std::vector<Object> & getChildren() const;
@@ -64,7 +65,7 @@ class  Shape  : public RenderObj  {
 public:
     SDL_Color      color = { 255,255,255,255 };
     
-    Shape();
+    //Shape();
 };
 class Point {
 public:
@@ -75,21 +76,21 @@ public:
 };
 class  Rect   : public Shape   {
 public:
-    void render(const Transform& off = Transform())  override;
+    void render(Renderer& ren,const Transform& off = Transform())  override;
     
 };
 class  RectLine   : public Shape   {
 public:
-    void render(const Transform& off = Transform())  override;
+    void render(Renderer& ren, const Transform& off = Transform())  override;
     
 };
 
-class Texture;
+/*class Texture;
 class TextureObj : RenderObj {
 protected:
     SDL_Texture*  m_sdlTexture;
 public:
-    void render(const Transform& off = Transform()) override;
+    void render(Renderer& ren, const Transform& off = Transform()) override;
 };
 
 #include "Log.h"
@@ -120,7 +121,17 @@ public:
     
 
 	void load(SDL_Renderer* ren, std::string path) {
-
+		bool success = true;
+		try {
+			Texture & tex = m_textures.at(path);
+			if (tex.m_sdlTexture)
+				setTexture(tex);
+			else
+				success = false;
+		}
+		catch (const std::out_of_range ex) {
+			success = false;
+		}
 		SDL_Surface* temp_surf = IMG_Load(path.c_str());
 
 		if ( ! temp_surf )
@@ -129,6 +140,10 @@ public:
 			m_sdlTexture = SDL_CreateTextureFromSurface(ren, temp_surf);
 			if ( ! m_sdlTexture )
 				Log(std::string("\n") + SDL_GetError());
+			else
+			{
+
+			}
 
 			SDL_FreeSurface(temp_surf);
 		}
@@ -142,7 +157,7 @@ public:
 		m_width = tex.width;
 		m_height = tex.height;
 	}
-};
+};*/
 class Image        : public Object  {
 private:
     SDL_Rect*  m_clipRect;
@@ -152,7 +167,7 @@ public:
     double     rot;
     
     Image();
-    void render(const Transform& off) override;
+    void render(Renderer& ren, const Transform& off) override;
 };
 
 

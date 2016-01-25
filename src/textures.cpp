@@ -1,7 +1,8 @@
+/*
 #include "../include/textures.h"
 #include <SDL/SDL_surface.h>
 #include <SDL/SDL_image.h>
-#include "sdlRenderer.h">
+//#include "sdlRenderer.h">
 #include <algorithm>
 
 
@@ -68,6 +69,7 @@ void  CTextures::unloadAllTextures() {
 	m_list.clear();
 
 }
+*/
 
 
 

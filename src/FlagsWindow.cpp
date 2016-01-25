@@ -26,4 +26,11 @@ namespace Flags {
 
 	}
 
+	namespace Fullscreen {
+		const Uint32
+			none               = 0,
+			fullscreen         = SDL_WINDOW_FULLSCREEN,
+			fullscreenDesktop  = SDL_WINDOW_FULLSCREEN_DESKTOP;
+	}
+
 }

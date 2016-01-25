@@ -230,7 +230,7 @@ void    Ngin:: doRender()       {
         
         for (auto it = m_objects.begin(); it != m_objects.end(); ++it)  {
             
-            (*it).render();
+            //(*it).render(ren);
         }
         
         SDL_RenderPresent(m_renderer);

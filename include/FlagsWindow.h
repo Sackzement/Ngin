@@ -26,5 +26,13 @@ namespace Flags {
 
 	}
 
+	namespace Fullscreen {
+		extern const Uint32
+			none,
+			fullscreen,
+			fullscreenDesktop;
+	}
+
+
 }
 

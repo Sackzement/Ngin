@@ -9,11 +9,14 @@ class Window
 private:
 	SDL_Window* m_sdlWindow = nullptr;
 public:
-	bool create(const char* title = "Game", int xPos = 100, int yPos = 100, int width = 1280, int height = 720, Uint32 flag = Flags::Window::shown);
-	bool setFullscreen(Uint32 flag = Flags::Window::fullscreenDesktop);
+	bool create(const char* title, int xPos, int yPos, int width, int height, Uint32 flags);
+	bool exists() const;
+	bool setFullscreen(Uint32 flags);
 	void destroy();
 
-	operator SDL_Window * const ();
+	operator SDL_Window * ();
 };
+
+static Window window;
 
 
