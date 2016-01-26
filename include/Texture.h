@@ -1,8 +1,9 @@
 #pragma once
 #include <SDL/SDL_render.h>
+#include <string>
 
 class Renderer;
-
+class Surface;
 
 
 
@@ -19,9 +20,16 @@ public:
 	//object funcs
 	Texture();
 	bool create(Renderer& ren,Uint32 fmt,int access,int w,int h);
-	bool createFromSurface(Renderer& ren, SDL_Surface* surf);
+	bool createFromSurface(Renderer& ren, Surface& surf);
+	bool load(Renderer& ren, const std::string & file);
 	bool exists() const;
 	void destroy();
+private:
+	static bool existsLoaded(const Renderer& ren,const std::string & path);
+	static void destroyAllCreated(Renderer& ren);
+	static void destroyAllLoaded(Renderer& ren);
+public:
+	static void destroyAll(Renderer& ren);
 
 	Texture & operator = (const Texture & tex) {
 

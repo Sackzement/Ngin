@@ -3,7 +3,7 @@
 #include "../include/Log.h"
 #include "../include/Texture.h"
 #include <SDL/SDL_image.h>
-//#include <SDL/SDL_surface.h>
+#include "../include/Surface.h"
 
 
 
@@ -17,11 +17,11 @@
 
 
 // object funcs
-     Renderer:: Renderer()
-
-	: m_sdlRenderer (nullptr),
-	  m_textures    (std::map<const std::string,Texture>())
-
+Renderer:: Renderer()
+	
+	: m_sdlRenderer     (nullptr),
+	  m_createdTextures (std::vector<Texture>()),
+	  m_loadedTextures  (std::map<const std::string, Texture>())
 {}
 bool Renderer:: create(Window& win, int index, Uint32 flags)
 {
@@ -107,33 +107,14 @@ bool Renderer:: load(const std::string & path) {
 	if (existsTexture(path))
 		return true;
 
-	SDL_Surface* temp_surf = IMG_Load(path.c_str());
+	Surface surf;
+	surf.load(path.c_str());
 
-	if (!temp_surf)
-		Log(std::string("\n") + SDL_GetError());
-	else {
+	if (surf.exists()) {
 		Texture newTex;
-		newTex.createFromSurface(*this, temp_surf);
-
-		SDL_FreeSurface(temp_surf);
+		newTex.createFromSurface(*this,surf);
+		surf.free();
 	}
-}
-bool Renderer:: load(const std::vector<const std::string> & list) {
-	return false;
-}
-bool Renderer:: existsTexture(const std::string & path) const {
-
-	try {
-		const Texture & tex = m_textures.at(path);
-		if (tex.exists())
-			return true;
-		else
-			return false;
-	}
-	catch (const std::out_of_range ex) {
-		return false;
-	}
-
 }
 /*void Renderer::unload(std::string path) {
 
@@ -143,16 +124,7 @@ SDL_DestroyTexture(m_sdlTexture);
 void Renderer:: unload(std::vector<std::string> list) {
 
 }*/  
-void Renderer:: unloadAll() {
 
-	auto it = m_textures.begin();
-	auto end = m_textures.end();
-
-	for (; it != end; ++it)
-		it->second.destroy();
-
-	m_textures.clear();
-}
 
 Renderer:: operator SDL_Renderer *  () {
 	return m_sdlRenderer;

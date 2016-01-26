@@ -18,10 +18,11 @@
 #include <map>
  
 class Renderer {
-
+	friend Texture;
 private:  // variables
 	SDL_Renderer*                  m_sdlRenderer;
-	std::map<const std::string,Texture>  m_textures;
+	std::vector<Texture>                  m_createdTextures;
+	std::map<const std::string, Texture>  m_loadedTextures;
 public: // object funcs
 	Renderer();
 	bool create(Window& win, int index, Uint32 flags);
