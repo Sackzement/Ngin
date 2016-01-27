@@ -22,7 +22,7 @@ private:
 	static std::vector<Surface>                 m_createdSurfaces;
 	static std::map<const std::string,Surface>  m_loadedSurfaces;
 public:
-	static Surface getLoaded();
+	static Surface getLoaded(const std::string & path);
 	static bool existsLoaded(const std::string & path);
 	static void freeAllCreated();
 	static void freeAllLoaded();

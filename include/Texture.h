@@ -36,6 +36,9 @@ public:
 		m_sdlTexture = tex.m_sdlTexture;
 		m_width = tex.width;
 		m_height = tex.height;
+        
+        return *this;
+        
 	}
 
 

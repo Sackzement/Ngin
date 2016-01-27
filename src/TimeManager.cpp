@@ -2,6 +2,21 @@
 #include <SDL/SDL_timer.h>
 
 
+Time:: Time()
+
+: m_gameTime(0),
+  m_deltaTime(0.),
+  m_fps(60),
+  m_fpsReal(60.),
+
+  total(m_gameTime),
+  delta(m_deltaTime),
+  fps(m_fps),
+  fps_real(m_fpsReal),
+
+  m_msPerFrame(1000. / static_cast<double>(m_fps)),
+  m_delayTime(0)
+{}
 
 void    Time::setFPS(const Uint16& newFPS) {
 

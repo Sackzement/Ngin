@@ -102,7 +102,7 @@ bool Renderer:: copyEx(Texture & tex, const SDL_Rect * srcrect, const SDL_Rect *
 		return true;
 }
 // texture manager funcs
-bool Renderer:: load(const std::string & path) {
+/*bool Renderer:: load(const std::string & path) {
 	
 	if (existsTexture(path))
 		return true;
@@ -115,7 +115,7 @@ bool Renderer:: load(const std::string & path) {
 		newTex.createFromSurface(*this,surf);
 		surf.free();
 	}
-}
+}*/
 /*void Renderer::unload(std::string path) {
 
 if ( existsTexture )

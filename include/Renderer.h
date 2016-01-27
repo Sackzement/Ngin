@@ -35,12 +35,12 @@ public: // object funcs
 	bool copyEx(Texture & tex, const SDL_Rect * srcrect, const SDL_Rect * dstrect,
 						double angle, const SDL_Point* center, SDL_RendererFlip flip);
 	// texture manager funcs
-	bool load(const std::string & path);
-	bool load(const std::vector<const std::string> & list);
-	bool existsTexture(const std::string & path) const;
+	//bool load(const std::string & path);
+	//bool load(const std::vector<const std::string> & list);
+	//bool existsTexture(const std::string & path) const;
 	//void unload(std::string path);
 	//void unload(std::vector<std::string> list);
-	void unloadAll();
+	//void unloadAll();
 
 	operator SDL_Renderer * ();
 };

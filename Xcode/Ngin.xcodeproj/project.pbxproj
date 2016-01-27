@@ -11,13 +11,20 @@
 		A7982FEC1C3A10900020CD52 /* libs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7982FE11C3A10900020CD52 /* libs.cpp */; };
 		A7982FED1C3A10900020CD52 /* Ngin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7982FE21C3A10900020CD52 /* Ngin.cpp */; };
 		A7982FEE1C3A10900020CD52 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7982FE31C3A10900020CD52 /* Object.cpp */; };
-		A7982FEF1C3A10900020CD52 /* renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7982FE41C3A10900020CD52 /* renderer.cpp */; };
-		A7982FF01C3A10900020CD52 /* sdlRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7982FE51C3A10900020CD52 /* sdlRenderer.cpp */; };
-		A7982FF11C3A10900020CD52 /* sdlRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = A7982FE61C3A10900020CD52 /* sdlRenderer.h */; };
-		A7982FF21C3A10900020CD52 /* sdlWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7982FE71C3A10900020CD52 /* sdlWindow.cpp */; };
-		A7982FF31C3A10900020CD52 /* sdlWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A7982FE81C3A10900020CD52 /* sdlWindow.h */; };
+		A7982FEF1C3A10900020CD52 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7982FE41C3A10900020CD52 /* Renderer.cpp */; };
 		A7982FF41C3A10900020CD52 /* textures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7982FE91C3A10900020CD52 /* textures.cpp */; };
-		A7982FF51C3A10900020CD52 /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7982FEA1C3A10900020CD52 /* window.cpp */; };
+		A7982FF51C3A10900020CD52 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7982FEA1C3A10900020CD52 /* Window.cpp */; };
+		A7C0ED821C57BA8700454EFE /* HardwareInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C0ED7C1C57BA8700454EFE /* HardwareInfo.h */; };
+		A7C0ED831C57BA8700454EFE /* Keyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C0ED7D1C57BA8700454EFE /* Keyboard.h */; };
+		A7C0ED841C57BA8700454EFE /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C0ED7E1C57BA8700454EFE /* Log.h */; };
+		A7C0ED851C57BA8700454EFE /* Scene.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C0ED7F1C57BA8700454EFE /* Scene.h */; };
+		A7C0ED861C57BA8700454EFE /* Surface.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C0ED801C57BA8700454EFE /* Surface.h */; };
+		A7C0ED871C57BA8700454EFE /* Texture.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C0ED811C57BA8700454EFE /* Texture.h */; };
+		A7C0ED8D1C57BA9600454EFE /* HardwareInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C0ED881C57BA9600454EFE /* HardwareInfo.cpp */; };
+		A7C0ED8E1C57BA9600454EFE /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C0ED891C57BA9600454EFE /* Log.cpp */; };
+		A7C0ED8F1C57BA9600454EFE /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C0ED8A1C57BA9600454EFE /* Scene.cpp */; };
+		A7C0ED901C57BA9600454EFE /* Surface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C0ED8B1C57BA9600454EFE /* Surface.cpp */; };
+		A7C0ED911C57BA9600454EFE /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C0ED8C1C57BA9600454EFE /* Texture.cpp */; };
 		A7CD8A5C1C50A34400EFF92C /* FlagsInit.h in Headers */ = {isa = PBXBuildFile; fileRef = A7CD8A581C50A34400EFF92C /* FlagsInit.h */; };
 		A7CD8A5D1C50A34400EFF92C /* FlagsRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = A7CD8A591C50A34400EFF92C /* FlagsRenderer.h */; };
 		A7CD8A5E1C50A34400EFF92C /* FlagsWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A7CD8A5A1C50A34400EFF92C /* FlagsWindow.h */; };
@@ -33,26 +40,33 @@
 		A7982FE11C3A10900020CD52 /* libs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = libs.cpp; sourceTree = "<group>"; };
 		A7982FE21C3A10900020CD52 /* Ngin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ngin.cpp; sourceTree = "<group>"; };
 		A7982FE31C3A10900020CD52 /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
-		A7982FE41C3A10900020CD52 /* renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = renderer.cpp; sourceTree = "<group>"; };
-		A7982FE51C3A10900020CD52 /* sdlRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sdlRenderer.cpp; sourceTree = "<group>"; };
-		A7982FE61C3A10900020CD52 /* sdlRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sdlRenderer.h; sourceTree = "<group>"; };
-		A7982FE71C3A10900020CD52 /* sdlWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sdlWindow.cpp; sourceTree = "<group>"; };
-		A7982FE81C3A10900020CD52 /* sdlWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sdlWindow.h; sourceTree = "<group>"; };
+		A7982FE41C3A10900020CD52 /* Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		A7982FE91C3A10900020CD52 /* textures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textures.cpp; sourceTree = "<group>"; };
-		A7982FEA1C3A10900020CD52 /* window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = window.cpp; sourceTree = "<group>"; };
+		A7982FEA1C3A10900020CD52 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
 		A7982FF71C3A10A80020CD52 /* Button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
 		A7982FF81C3A10A80020CD52 /* libs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libs.h; sourceTree = "<group>"; };
 		A7982FF91C3A10A80020CD52 /* Ngin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ngin.h; sourceTree = "<group>"; };
 		A7982FFA1C3A10A80020CD52 /* Object.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
 		A7982FFB1C3A10A80020CD52 /* objects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = objects.h; sourceTree = "<group>"; };
-		A7982FFC1C3A10A80020CD52 /* renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = renderer.h; sourceTree = "<group>"; };
+		A7982FFC1C3A10A80020CD52 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		A7982FFD1C3A10A80020CD52 /* sdf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sdf.h; sourceTree = "<group>"; };
 		A7982FFE1C3A10A80020CD52 /* tajm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tajm.h; sourceTree = "<group>"; };
 		A7982FFF1C3A10A80020CD52 /* textures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = textures.h; sourceTree = "<group>"; };
 		A79830001C3A10A80020CD52 /* types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
-		A79830011C3A10A80020CD52 /* window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = window.h; sourceTree = "<group>"; };
+		A79830011C3A10A80020CD52 /* Window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
 		A7B0C4131C18ECBB006B44D8 /* Ngin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Ngin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B0C4181C18ECBB006B44D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7C0ED7C1C57BA8700454EFE /* HardwareInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareInfo.h; sourceTree = "<group>"; };
+		A7C0ED7D1C57BA8700454EFE /* Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keyboard.h; sourceTree = "<group>"; };
+		A7C0ED7E1C57BA8700454EFE /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
+		A7C0ED7F1C57BA8700454EFE /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		A7C0ED801C57BA8700454EFE /* Surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Surface.h; sourceTree = "<group>"; };
+		A7C0ED811C57BA8700454EFE /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		A7C0ED881C57BA9600454EFE /* HardwareInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareInfo.cpp; sourceTree = "<group>"; };
+		A7C0ED891C57BA9600454EFE /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
+		A7C0ED8A1C57BA9600454EFE /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		A7C0ED8B1C57BA9600454EFE /* Surface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Surface.cpp; sourceTree = "<group>"; };
+		A7C0ED8C1C57BA9600454EFE /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		A7CD8A581C50A34400EFF92C /* FlagsInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlagsInit.h; sourceTree = "<group>"; };
 		A7CD8A591C50A34400EFF92C /* FlagsRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlagsRenderer.h; sourceTree = "<group>"; };
 		A7CD8A5A1C50A34400EFF92C /* FlagsWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlagsWindow.h; sourceTree = "<group>"; };
@@ -77,6 +91,11 @@
 		A7982FDF1C3A10900020CD52 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A7C0ED881C57BA9600454EFE /* HardwareInfo.cpp */,
+				A7C0ED891C57BA9600454EFE /* Log.cpp */,
+				A7C0ED8A1C57BA9600454EFE /* Scene.cpp */,
+				A7C0ED8B1C57BA9600454EFE /* Surface.cpp */,
+				A7C0ED8C1C57BA9600454EFE /* Texture.cpp */,
 				A7CD8A601C50A35000EFF92C /* FlagsInit.cpp */,
 				A7CD8A611C50A35000EFF92C /* FlagsRenderer.cpp */,
 				A7CD8A621C50A35000EFF92C /* FlagsWindow.cpp */,
@@ -85,13 +104,9 @@
 				A7982FE11C3A10900020CD52 /* libs.cpp */,
 				A7982FE21C3A10900020CD52 /* Ngin.cpp */,
 				A7982FE31C3A10900020CD52 /* Object.cpp */,
-				A7982FE41C3A10900020CD52 /* renderer.cpp */,
-				A7982FE51C3A10900020CD52 /* sdlRenderer.cpp */,
-				A7982FE61C3A10900020CD52 /* sdlRenderer.h */,
-				A7982FE71C3A10900020CD52 /* sdlWindow.cpp */,
-				A7982FE81C3A10900020CD52 /* sdlWindow.h */,
+				A7982FE41C3A10900020CD52 /* Renderer.cpp */,
 				A7982FE91C3A10900020CD52 /* textures.cpp */,
-				A7982FEA1C3A10900020CD52 /* window.cpp */,
+				A7982FEA1C3A10900020CD52 /* Window.cpp */,
 			);
 			name = src;
 			path = ../src;
@@ -100,6 +115,12 @@
 		A7982FF61C3A10A80020CD52 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				A7C0ED7C1C57BA8700454EFE /* HardwareInfo.h */,
+				A7C0ED7D1C57BA8700454EFE /* Keyboard.h */,
+				A7C0ED7E1C57BA8700454EFE /* Log.h */,
+				A7C0ED7F1C57BA8700454EFE /* Scene.h */,
+				A7C0ED801C57BA8700454EFE /* Surface.h */,
+				A7C0ED811C57BA8700454EFE /* Texture.h */,
 				A7CD8A581C50A34400EFF92C /* FlagsInit.h */,
 				A7CD8A591C50A34400EFF92C /* FlagsRenderer.h */,
 				A7CD8A5A1C50A34400EFF92C /* FlagsWindow.h */,
@@ -109,12 +130,12 @@
 				A7982FF91C3A10A80020CD52 /* Ngin.h */,
 				A7982FFA1C3A10A80020CD52 /* Object.h */,
 				A7982FFB1C3A10A80020CD52 /* objects.h */,
-				A7982FFC1C3A10A80020CD52 /* renderer.h */,
+				A7982FFC1C3A10A80020CD52 /* Renderer.h */,
 				A7982FFD1C3A10A80020CD52 /* sdf.h */,
 				A7982FFE1C3A10A80020CD52 /* tajm.h */,
 				A7982FFF1C3A10A80020CD52 /* textures.h */,
 				A79830001C3A10A80020CD52 /* types.h */,
-				A79830011C3A10A80020CD52 /* window.h */,
+				A79830011C3A10A80020CD52 /* Window.h */,
 			);
 			name = include;
 			path = ../include;
@@ -145,12 +166,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7C0ED871C57BA8700454EFE /* Texture.h in Headers */,
+				A7C0ED841C57BA8700454EFE /* Log.h in Headers */,
 				A7CD8A5E1C50A34400EFF92C /* FlagsWindow.h in Headers */,
+				A7C0ED861C57BA8700454EFE /* Surface.h in Headers */,
+				A7C0ED831C57BA8700454EFE /* Keyboard.h in Headers */,
 				A7CD8A5F1C50A34400EFF92C /* TimeManager.h in Headers */,
 				A7CD8A5C1C50A34400EFF92C /* FlagsInit.h in Headers */,
 				A7CD8A5D1C50A34400EFF92C /* FlagsRenderer.h in Headers */,
-				A7982FF31C3A10900020CD52 /* sdlWindow.h in Headers */,
-				A7982FF11C3A10900020CD52 /* sdlRenderer.h in Headers */,
+				A7C0ED821C57BA8700454EFE /* HardwareInfo.h in Headers */,
+				A7C0ED851C57BA8700454EFE /* Scene.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,15 +249,18 @@
 				A7982FED1C3A10900020CD52 /* Ngin.cpp in Sources */,
 				A7982FF41C3A10900020CD52 /* textures.cpp in Sources */,
 				A7982FEB1C3A10900020CD52 /* Button.cpp in Sources */,
+				A7C0ED911C57BA9600454EFE /* Texture.cpp in Sources */,
 				A7CD8A651C50A35000EFF92C /* FlagsRenderer.cpp in Sources */,
 				A7CD8A671C50A35000EFF92C /* TimeManager.cpp in Sources */,
-				A7982FEF1C3A10900020CD52 /* renderer.cpp in Sources */,
+				A7C0ED8D1C57BA9600454EFE /* HardwareInfo.cpp in Sources */,
+				A7C0ED8E1C57BA9600454EFE /* Log.cpp in Sources */,
+				A7982FEF1C3A10900020CD52 /* Renderer.cpp in Sources */,
+				A7C0ED8F1C57BA9600454EFE /* Scene.cpp in Sources */,
 				A7CD8A661C50A35000EFF92C /* FlagsWindow.cpp in Sources */,
-				A7982FF21C3A10900020CD52 /* sdlWindow.cpp in Sources */,
 				A7CD8A641C50A35000EFF92C /* FlagsInit.cpp in Sources */,
+				A7C0ED901C57BA9600454EFE /* Surface.cpp in Sources */,
 				A7982FEE1C3A10900020CD52 /* Object.cpp in Sources */,
-				A7982FF51C3A10900020CD52 /* window.cpp in Sources */,
-				A7982FF01C3A10900020CD52 /* sdlRenderer.cpp in Sources */,
+				A7982FF51C3A10900020CD52 /* Window.cpp in Sources */,
 				A7982FEC1C3A10900020CD52 /* libs.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

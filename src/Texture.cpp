@@ -48,20 +48,33 @@ bool Texture:: load(Renderer& ren,const std::string & file) {
 
 	if (Surface::existsLoaded(file)) {
 		
-		createFromSurface(ren, surf);
-		return true;
+        Surface surf = Surface::getLoaded(file);
+        m_sdlTexture = SDL_CreateTextureFromSurface(ren,surf);
+        
+        if (m_sdlTexture) {
+            
+            ren.m_loadedTextures[file] = *this;
+            return true;
+        }
+        else
+            Log(std::string("\n") + SDL_GetError());
 	}
-	m_sdlSurface = IMG_Load(file.c_str());
+    
+    Surface surf;
+    if (surf.load(file)) {
+        
+        m_sdlTexture = SDL_CreateTextureFromSurface(ren,surf);
+        
+        if (m_sdlTexture) {
+            
+            ren.m_loadedTextures[file] = *this;
+            return true;
+        }
+        else
+            Log(std::string("\n") + SDL_GetError());
+    }
 
-	if (!m_sdlSurface) {
-
-		Log(std::string("\n") + SDL_GetError());
-		return false;
-	}
-
-	m_loadedSurfaces[file] = *this;
-
-	return true;
+	return false;
 }
 bool Texture:: exists() const {
 

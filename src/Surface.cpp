@@ -33,6 +33,12 @@ void Surface::freeAll() {
 	freeAllLoaded();
 
 }
+Surface Surface::getLoaded(const std::string & path) {
+    if (existsLoaded(path))
+        return m_loadedSurfaces[path];
+    else
+        return Surface();
+}
 bool Surface::existsLoaded(const std::string & path) {
 
 	try {
