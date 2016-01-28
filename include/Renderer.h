@@ -18,22 +18,26 @@
 #include <map>
  
 class Renderer {
-	friend Texture;
-private:  // variables
-	SDL_Renderer*                  m_sdlRenderer;
-	std::vector<Texture>                  m_createdTextures;
-	std::map<const std::string, Texture>  m_loadedTextures;
-public: // object funcs
-	Renderer();
-	bool create(Window& win, int index, Uint32 flags);
+private:
+	SDL_Renderer* m_sdlRenderer;
+public:
+         Renderer();
+	bool create(Window& win,int renidx,Uint32 flags);
 	bool exists() const;
 	void destroy();
-	// draw funcs
-	bool setTarget(SDL_Texture * target);
-	bool clear();
-	bool copy(Texture & tex, const SDL_Rect * srcrect, const SDL_Rect * dstrect);
-	bool copyEx(Texture & tex, const SDL_Rect * srcrect, const SDL_Rect * dstrect,
-						double angle, const SDL_Point* center, SDL_RendererFlip flip);
+    
+    Texture createTexture(Uint32 fmt,int acc,int w,int h);
+    Texture createTexture(Surface& surf);
+    
+    bool setTarget(Texture& tex);
+    bool setTargetDefault();
+    bool setColor(Uint8 r,Uint8 g,Uint8 b,Uint8 a);
+    bool clear();
+    bool copy(Texture& tex,int x,int y,int w,int h);
+    bool copyEx(Texture& tex,int x,int y,int w,int h,double rot,int flip); // Flip flip
+private:
+    std::vector<Texture>                  m_createdTextures;
+    std::map<const std::string, Texture>  m_loadedTextures;
 	// texture manager funcs
 	//bool load(const std::string & path);
 	//bool load(const std::vector<const std::string> & list);
