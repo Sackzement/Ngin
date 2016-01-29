@@ -36,8 +36,9 @@ public:
     bool copy(Texture& tex,int x,int y,int w,int h);
     bool copyEx(Texture& tex,int x,int y,int w,int h,double rot,int flip); // Flip flip
 private:
-    std::vector<Texture>                  m_createdTextures;
-    std::map<const std::string, Texture>  m_loadedTextures;
+    static std::vector<Texture>                  m_createdTextures;
+    static std::map<const std::string, Texture>  m_loadedTextures;
+public:
 	// texture manager funcs
 	//bool load(const std::string & path);
 	//bool load(const std::vector<const std::string> & list);
