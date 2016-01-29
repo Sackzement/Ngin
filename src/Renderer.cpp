@@ -19,24 +19,27 @@
 // object funcs
 Renderer:: Renderer()
 	
-	: m_sdlRenderer     (nullptr),
-	  m_createdTextures (std::vector<Texture>()),
-	  m_loadedTextures  (std::map<const std::string, Texture>())
+	: m_sdlRenderer   (nullptr),
+	  m_textures      (new std::vector<Texture> () ),
+	  m_texturesNamed (new std::map<const std::string,Texture> () )
 {}
-bool Renderer:: create(Window& win, int index, Uint32 flags)
-{
+
+Renderer Window:: createRenderer(int renidx,Uint32 renflags) {
+    
+    Renderer ren;
+
 	if (exists()) {
 		Log("\nCan not create Renderer. Renderer already exists.");
 		return false;
 	}
 
-	m_sdlRenderer = SDL_GetRenderer(win);
+	m_sdlRenderer = SDL_GetRenderer(m_sdlWindow);
 	if (m_sdlRenderer) {
 		Log("\nCan not create Renderer. Window already has a Renderer.");
 		return false;
 	}
 
-	m_sdlRenderer = SDL_CreateRenderer(win, index, flags);
+	m_sdlRenderer = SDL_CreateRenderer(win,renidx,flags);SDL_CreateRenderer(<#SDL_Window *window#>, <#int index#>, <#Uint32 flags#>)
 	if (!m_sdlRenderer) {
 		Log(std::string("\n") + SDL_GetError());
 		return false;

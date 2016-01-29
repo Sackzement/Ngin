@@ -2,21 +2,23 @@
 
 #include <SDL/SDL_video.h>
 #include "FlagsWindow.h"
+#include <string>
 
 
 class Window
 { 
 private:
-	SDL_Window* m_sdlWindow = nullptr;
+	SDL_Window * m_sdlWindow
 public:
-	bool create(const char* title, int xPos, int yPos, int width, int height, Uint32 flags);
+         Window();
+    bool create(const std::string& title,int x,int y,int w,int h,Uint32 flags);
 	bool exists() const;
-	bool setFullscreen(Uint32 flags);
 	void destroy();
+    
+    bool setFullscreen(Uint32 flag);
 
-	operator SDL_Window * ();
+    friend SDL_Window * Renderer::getWinPointer(Window& win);
 };
 
-static Window window;
 
 
