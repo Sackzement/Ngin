@@ -71,6 +71,9 @@
     <ClInclude Include="..\include\Surface.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\textures.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Button.cpp">
@@ -116,6 +119,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Surface.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\textures.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

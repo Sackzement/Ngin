@@ -1,6 +1,7 @@
 
 #include "../include/Window.h"
 #include "../include/Log.h"
+#include "../include/Renderer.h"
 
 
 
@@ -9,9 +10,7 @@
 
 
 
-
-
-bool Window::create(const char* title, int x, int y, int w, int h, Uint32 flags) {
+bool Window::create(const std::string& title, int x, int y, int w, int h, Uint32 flags) {
 
 	if (exists()) {
 
@@ -19,7 +18,7 @@ bool Window::create(const char* title, int x, int y, int w, int h, Uint32 flags)
 		return false;
 	}
 
-	m_sdlWindow = SDL_CreateWindow(title, x, y, w, h, flags);
+	m_sdlWindow = SDL_CreateWindow(title.c_str(),x,y,w,h,flags);
 
 	if (!m_sdlWindow) {
 
@@ -31,6 +30,7 @@ bool Window::create(const char* title, int x, int y, int w, int h, Uint32 flags)
 }
 
 bool Window::exists() const {
+
 	if (m_sdlWindow)
 		return true;
 	else
@@ -59,6 +59,30 @@ bool Window::setFullscreen(Uint32 flag) {
 }
 
 
-Window:: operator SDL_Window * () {
-	return m_sdlWindow;
+bool     Window::hasRenderer() const {
+	
+	if (SDL_GetRenderer(m_sdlWindow))
+		return true;
+	else
+		return false;
+
+}
+Renderer Window::getRenderer() const {
+
+	Renderer ren;
+
+	ren.m_sdlRenderer = SDL_GetRenderer(m_sdlWindow);
+
+	return ren;
+
+}
+Renderer Window::createRenderer(int renidx,Uint32 flags) {
+
+	Renderer ren;
+
+	ren.m_sdlRenderer = SDL_CreateRenderer(m_sdlWindow, renidx, flags); 
+	if (!ren.exists()) 
+		Log(std::string("\n") + SDL_GetError());
+
+	return ren;
 }
